@@ -9,6 +9,9 @@
       - git
       - nodejs
       - npm
+      - wget
+      - curl
+      - python3
     update_cache: yes
 
 - name: Make sure we have a 'admins' group
