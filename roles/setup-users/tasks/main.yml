@@ -24,7 +24,8 @@
   ansible.builtin.user:
     state: present
     groups: admins
-    createhome: yes
+    create_home: yes
+    update_password: on_create
     name: "{{ item.user }}"
     comment: "{{ item.name }}"
     password: "{{ default_passwd | password_hash('sha512') }}"
