@@ -9,6 +9,7 @@
       - wget
       - curl
       - python3
+      - python3-distutils
       - golang-go
     update_cache: yes
 
