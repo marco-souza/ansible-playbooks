@@ -1,0 +1,6 @@
+# Velociraptor scripts
+---
+scripts:
+  server-setup:
+    desc: Setup system
+    cmd: ansible-playbook -i ./inventories/hosts webserver.yml
