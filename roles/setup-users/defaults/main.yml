@@ -3,11 +3,7 @@ users:
   - name: Marco Souza
     user: marco
     pub_key: ../files/marco.pub
-    zshrc: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.zshrc
-    aliases: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.aliases
 
   - name: Pedro Frattezi
     user: frattezi
     pub_key: ../files/marco.pub
-    zshrc: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.zshrc
-    aliases: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.aliases

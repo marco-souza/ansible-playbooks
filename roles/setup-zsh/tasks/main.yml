@@ -1,0 +1,34 @@
+---
+- name: Install system dependencies
+  apt:
+    pkg:
+      - zsh
+      - git
+      - nodejs
+      - npm
+      - wget
+      - curl
+      - python3
+    update_cache: yes
+
+- name: Add sys admins users
+  ansible.builtin.user:
+    shell: /bin/zsh
+    name: "{{ item.user }}"
+  with_items: "{{ users }}"
+
+- name: Download .zshrc for each user
+  become_user: "{{ item.user }}"
+  get_url:
+    url: "{{ item.zshrc }}"
+    dest: "/home/{{ item.user }}/.zshrc"
+    mode: 644
+  with_items: "{{ users }}"
+
+- name: Download .aliases for each user
+  become_user: "{{ item.user }}"
+  get_url:
+    url: "{{ item.aliases }}"
+    dest: "/home/{{ item.user }}/.aliases"
+    mode: 644
+  with_items: "{{ users }}"
