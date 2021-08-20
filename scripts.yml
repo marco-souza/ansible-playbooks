@@ -3,4 +3,8 @@
 scripts:
   server-setup:
     desc: Setup system
-    cmd: ansible-playbook -i ./inventories/hosts webserver.yml
+    cmd: ansible-playbook -i ./inventories/hosts initial-setup.yml
+
+  zsh-setup:
+    desc: ZSH system
+    cmd: ansible-playbook -i ./inventories/hosts zsh-setup.yml

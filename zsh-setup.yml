@@ -1,0 +1,7 @@
+---
+- name: ZSH setup
+  hosts: all
+  become: yes
+  connection: ssh
+  roles:
+    - setup-zsh
