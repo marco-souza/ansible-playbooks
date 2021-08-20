@@ -1,0 +1,14 @@
+---
+- name: Update Ubuntu/Debian Server
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 # One day
+
+    - name: Reboot the machine (Wait for 5 min)
+      reboot:
+        reboot_timeout: 300
