@@ -1,8 +1,13 @@
 default_passwd: podcodar
 users:
-  - user: marco
-    name: Marco Souza
+  - name: Marco Souza
+    user: marco
     pub_key: ../files/marco.pub
-  - user: frattezi
-    name: Pedro Frattezi
+    zshrc: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.zshrc
+    aliases: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.aliases
+
+  - name: Pedro Frattezi
+    user: frattezi
     pub_key: ../files/marco.pub
+    zshrc: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.zshrc
+    aliases: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.aliases

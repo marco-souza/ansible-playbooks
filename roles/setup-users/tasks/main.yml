@@ -2,9 +2,13 @@
 #
 # [1]: https://stackoverflow.com/questions/37333305/ansible-create-a-user-with-sudo-privileges
 ---
-- name: Install zsh
+- name: Install system dependencies
   apt:
-    name: zsh
+    pkg:
+      - zsh
+      - git
+      - nodejs
+      - npm
     update_cache: yes
 
 - name: Make sure we have a 'admins' group
@@ -25,7 +29,7 @@
     state: present
     groups: admins
     create_home: yes
-    shell: /bin/bash
+    shell: /bin/zsh
     update_password: on_create
     name: "{{ item.user }}"
     comment: "{{ item.name }}"
@@ -36,4 +40,20 @@
   authorized_key:
     user: "{{ item.user }}"
     key: "{{ lookup('file', item.pub_key) }}"
+  with_items: "{{ users }}"
+
+- name: Download .zshrc for each user
+  become_user: "{{ item.user }}"
+  get_url:
+    url: "{{ item.zshrc }}"
+    dest: "/home/{{ item.user }}/.zshrc"
+    mode: 644
+  with_items: "{{ users }}"
+
+- name: Download .aliases for each user
+  become_user: "{{ item.user }}"
+  get_url:
+    url: "{{ item.zshrc }}"
+    dest: "/home/{{ item.user }}/.aliases"
+    mode: 644
   with_items: "{{ users }}"
