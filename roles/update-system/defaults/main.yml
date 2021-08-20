@@ -1,0 +1,2 @@
+cache_timeout: 86400 # one day
+reboot_timeout: 3600

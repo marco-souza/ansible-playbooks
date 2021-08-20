@@ -1,0 +1,31 @@
+# TODO: We should follow these[1] best practices and create a folder with all public keys
+#
+# [1]: https://stackoverflow.com/questions/37333305/ansible-create-a-user-with-sudo-privileges
+---
+- name: Install zsh
+  apt:
+    name: zsh
+    update_cache: yes
+
+- name: Make sure we have a 'admins' group
+  group:
+    name: admins
+    state: present
+
+- name: Allow 'admins' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^%admins"
+    line: "%admins ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"
+
+- name: Add sys admins users
+  ansible.builtin.user:
+    state: present
+    groups: admins
+    createhome: yes
+    name: "{{ item.user }}"
+    comment: "{{ item.name }}"
+    password: "{{ default_passwd | password_hash('sha512') }}"
+  with_items: "{{ users }}"

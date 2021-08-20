@@ -1,0 +1,6 @@
+default_passwd: podcodar
+users:
+  - user: marco
+    name: Marco Souza
+  - user: frattezi
+    name: Pedro Frattezi
