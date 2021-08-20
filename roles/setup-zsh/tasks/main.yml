@@ -9,6 +9,7 @@
       - wget
       - curl
       - python3
+      - golang-go
     update_cache: yes
 
 - name: Download .zshrc for each user
