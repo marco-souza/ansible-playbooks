@@ -1,9 +1,0 @@
----
-- name: Setup web servers
-  hosts: all
-  become: yes
-  connection: ssh
-  roles:
-    - update-system
-    - setup-users
-    - setup-zsh

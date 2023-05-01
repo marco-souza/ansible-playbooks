@@ -1,8 +1,0 @@
-users:
-  - user: marco
-    zshrc: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.zshrc
-    aliases: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.aliases
-
-  - user: frattezi
-    zshrc: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.zshrc
-    aliases: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.aliases
