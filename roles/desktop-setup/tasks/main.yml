@@ -4,15 +4,25 @@
   package:
     name:
       - gnome-desktop
+      - gnome-tweaks
+      # pop-os tiling
       - gnome-shell-extension-pop-shell
       - pop-shell-shortcuts
+      # pop-os theme
+      - pop-gtk-theme
+      - gtk-engine-murrine
+      - gtk-engines
+      - pop-gnome-shell-theme
+      - pop-icon-theme
+      - pop-sound-theme
+      - ttf-fira-sans
+      - ttf-fira-mono
+      - ttf-roboto-slab
     state: present
 
-- name: Remap laucher to Alt+Space
+- name: Remap PopOS! laucher
   shell: |
-    gsettings 
-      --schemadir ~/.local/share/gnome-shell/extensions/pop-shell@system76.com/schemas
-      set org.gnome.shell.extensions.pop-shell activate-launcher "['<Alt>space']"
+    gsettings set org.gnome.shell.extensions.pop-shell  activate-launcher  "['<Super>z']"
 
 # - name: Create keyboard shortcuts for Pop Shell
 #   gnome_shortcut:
