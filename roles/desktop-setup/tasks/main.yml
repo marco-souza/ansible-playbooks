@@ -25,9 +25,9 @@
     gsettings set "{{ item.schema }}" "{{ item.command }}" "{{ item.shortcut }}"
   with_items: "{{ shortcuts }}"
 
-# - name: Create keyboard shortcuts for Pop Shell
-#   gnome_shortcut:
-#     name: "{{ item.name }}"
-#     command: "{{ item.command }}"
-#     shortcut: "{{ item.shortcut }}"
-#   with_items: "{{ pop_shell_shortcuts }}"
+- name: Create custom shortcuts
+  shell: |
+    gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Terminal'
+    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'zsh -c "alacritty || gnome-terminal"'
+    gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Super>t'
