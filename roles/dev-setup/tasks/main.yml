@@ -17,6 +17,8 @@
     - yarn
     - pnpm
     - tsx
+    - vercel
+    - emmet-ls
     - typescript
     - typescript-language-server
     - tailwindcss-language-server
