@@ -22,7 +22,8 @@
 
 - name: Remap PopOS! laucher
   shell: |
-    gsettings set org.gnome.shell.extensions.pop-shell  activate-launcher  "['<Super>z']"
+    gsettings set "{{ item.schema }}" "{{ item.command }}" "{{ item.shortcut }}"
+  with_items: "{{ shortcuts }}"
 
 # - name: Create keyboard shortcuts for Pop Shell
 #   gnome_shortcut:
