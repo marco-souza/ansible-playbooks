@@ -1,5 +1,5 @@
 ---
-- name: Install Packages
+- name: Install base packages
   package:
     name:
       - zsh
@@ -8,7 +8,6 @@
       - stow
       - tmux
       - neovim
-      - wakatime
     state: present
 
 - name: Stow cofig files

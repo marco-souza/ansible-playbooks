@@ -1,0 +1,22 @@
+---
+- name: Install dev packages
+  package:
+    name:
+      - npm
+      - nodejs
+      - wakatime
+    state: present
+
+- name: Install NPM packages
+  npm:
+    name: "{{ item }}"
+    global: true
+    state: present
+    path: $HOME/.npm-global/lib/
+  with_items:
+    - yarn
+    - pnpm
+    - tsx
+    - typescript
+    - typescript-language-server
+    - tailwindcss-language-server

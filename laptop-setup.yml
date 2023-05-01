@@ -4,3 +4,4 @@
   roles:
     # - desktop-setup
     - packages-setup
+    - dev-setup
