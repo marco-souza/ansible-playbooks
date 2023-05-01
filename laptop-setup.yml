@@ -1,7 +1,6 @@
 ---
-- name: Setup web servers
-  hosts: all
-  become: yes
-  connection: ssh
+- name: Setup personal laptop
+  hosts: localhost
   roles:
-    - desktop-setup
+    # - desktop-setup
+    - packages-setup
