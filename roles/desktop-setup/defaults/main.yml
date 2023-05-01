@@ -1,0 +1,18 @@
+users:
+  - user: marco
+    zshrc: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.zshrc
+    aliases: https://raw.githubusercontent.com/marco-souza/zshrc/master/zshrc/ubuntu/.aliases
+
+pop_shell_shortcuts:
+  - name: Open Terminal
+    shortcut: '<Super>t'
+    command: '"alacritty || gnome-terminal"'
+  - name: Move window to previous monitor
+    shortcut: '<Alt>space'
+    command: 'activate-launcher'
+  # - name: Move window to next monitor
+  #   shortcut: '<Super><Shift>Right'
+  #   command: 'pop-shell-move-window-to-next-monitor'
+  # - name: Move window to previous monitor
+  #   shortcut: '<Super><Shift>Left'
+  #   command: 'pop-shell-move-window-to-previous-monitor'
