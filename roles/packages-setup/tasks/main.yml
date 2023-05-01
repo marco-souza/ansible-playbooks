@@ -1,5 +1,6 @@
 ---
 - name: Install base packages
+  become: yes
   package:
     name:
       - zsh
