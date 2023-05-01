@@ -1,0 +1,7 @@
+---
+- name: Setup personal laptop
+  hosts: localhost
+  roles:
+    - desktop-setup
+    - packages-setup
+    - dev-setup

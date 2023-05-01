@@ -1,9 +1,0 @@
-default_passwd: podcodar
-users:
-  - name: Marco Souza
-    user: marco
-    pub_key: ../files/marco.pub
-
-  - name: Pedro Frattezi
-    user: frattezi
-    pub_key: ../files/marco.pub

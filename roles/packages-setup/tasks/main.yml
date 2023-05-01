@@ -1,0 +1,42 @@
+---
+- name: Install base packages
+  become: yes
+  package:
+    name:
+      - zsh
+      - git
+      - vim
+      - stow
+      - tmux
+      - neovim
+    state: present
+
+- name: Stow cofig files
+  shell:
+    cmd: stow {{ item }} -t $HOME
+    chdir: "{{ dotfiles_dir }}"
+  with_items:
+    - zsh
+    - git
+    - config
+    - scripts
+    - wakatime
+
+- name: Setup zsh
+  user:
+    name: "{{ item }}"
+    shell: /bin/zsh
+  with_items:
+    - marco
+
+- name: Setup neovim
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    clone: yes
+    update: yes
+  with_items:
+    - repo: https://github.com/AstroNvim/AstroNvim
+      dest: $HOME/.config/nvim
+    - repo: https://github.com/marco-souza/astronvim
+      dest: $HOME/.config/nvim/lua/user
