@@ -1,5 +1,6 @@
 ---
 - name: Install dev packages
+  become: yes
   package:
     name:
       - npm
