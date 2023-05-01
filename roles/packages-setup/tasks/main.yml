@@ -8,6 +8,7 @@
       - stow
       - tmux
       - neovim
+      - wakatime
     state: present
 
 - name: Stow cofig files
