@@ -2,6 +2,6 @@
 - name: Setup personal laptop
   hosts: localhost
   roles:
-    # - desktop-setup
+    - desktop-setup
     - packages-setup
     - dev-setup

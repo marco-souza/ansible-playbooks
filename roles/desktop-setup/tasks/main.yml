@@ -1,41 +1,22 @@
 ---
-- name: Add users
-  user:
-    shell: /bin/zsh
-    name: "{{ item.user }}"
-  with_items: "{{ users }}"
-
 - name: Install Gnome PopOS! shell
   become: yes
   package:
     name:
-      # - gnome-desktop
+      - gnome-desktop
       - gnome-shell-extension-pop-shell
       - pop-shell-shortcuts
     state: present
 
-- name: Create keyboard shortcuts for Pop Shell
-  gnome_shortcut:
-    name: "{{ item.name }}"
-    command: "{{ item.command }}"
-    shortcut: "{{ item.shortcut }}"
-  # become: yes
-  # command: gsettings set org.gnome.shell.extensions.pop-shell shortcut-{{ item.name|lower|replace(' ', '-') }} "{{ item.shortcut }}"
-  # command: gsettings set org.gnome.shell.extensions.pop-shell  {{ item.command }} "{{ item.shortcut }}"
-  with_items: "{{ pop_shell_shortcuts }}"
+- name: Remap laucher to Alt+Space
+  shell: |
+    gsettings 
+      --schemadir ~/.local/share/gnome-shell/extensions/pop-shell@system76.com/schemas
+      set org.gnome.shell.extensions.pop-shell activate-launcher "['<Alt>space']"
 
-# STOW files later
-#
-# - name: Download .zshrc for each user
-#   become_user: "{{ item.user }}"
-#   get_url:
-#     url: "{{ item.zshrc }}"
-#     dest: "/home/{{ item.user }}/.zshrc"
-#   with_items: "{{ users }}"
-#
-# - name: Download .aliases for each user
-#   become_user: "{{ item.user }}"
-#   get_url:
-#     url: "{{ item.aliases }}"
-#     dest: "/home/{{ item.user }}/.aliases"
-#   with_items: "{{ users }}"
+# - name: Create keyboard shortcuts for Pop Shell
+#   gnome_shortcut:
+#     name: "{{ item.name }}"
+#     command: "{{ item.command }}"
+#     shortcut: "{{ item.shortcut }}"
+#   with_items: "{{ pop_shell_shortcuts }}"
