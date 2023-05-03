@@ -1,7 +1,7 @@
-install: deps laptop-setup
+manjaro: manjaro-setup.yml
+	sudo pacman -S ansible
+	ansible-playbook manjaro-setup.yml -i localhost --ask-become-pass
 
-deps:
-	sudo pacman -Syu ansible
-
-laptop-setup: laptop-setup.yml
-	ansible-playbook laptop-setup.yml -i localhost --ask-become-pass
+pop-os: pop-os-setup.yml
+	sudo apt install ansible
+	ansible-playbook pop-os-setup.yml -i localhost --ask-become-pass
