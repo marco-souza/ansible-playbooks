@@ -1,0 +1,5 @@
+- [ ] make pop-os installer
+- [ ] encrypt credentials using ansible-vaults
+- [ ] setup .dotfiles
+- [ ] setup distrobox ??
+- [ ] 
