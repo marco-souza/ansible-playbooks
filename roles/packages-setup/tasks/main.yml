@@ -6,10 +6,22 @@
       - zsh
       - git
       - vim
+      - fzf
       - stow
       - tmux
       - neovim
+      - ripgrep
     state: present
+
+- name: Install AUR packages
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - discord
+      - 1password
+      - brave-bin
+      - 1password-cli
+      - visual-studio-code-insiders-bin
 
 - name: Stow cofig files
   shell:

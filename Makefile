@@ -1,6 +1,6 @@
 manjaro: manjaro-setup.yml
-	sudo pacman-mirrors --fasttrack
 	sudo pacman -S ansible
+	ansible-galaxy collection install kewlfft.aur
 	ansible-playbook manjaro-setup.yml -i localhost --ask-become-pass
 
 pop-os: pop-os-setup.yml
