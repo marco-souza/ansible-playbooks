@@ -23,6 +23,11 @@
       - 1password-cli
       - visual-studio-code-insiders-bin
 
+- name: Stow user data
+  shell:
+    cmd: stow home -t $HOME
+    chdir: "{{ data_dir }}"
+
 - name: Stow cofig files
   shell:
     cmd: stow {{ item }} -t $HOME
@@ -52,3 +57,4 @@
       dest: $HOME/.config/nvim
     - repo: https://github.com/marco-souza/astronvim
       dest: $HOME/.config/nvim/lua/user
+
