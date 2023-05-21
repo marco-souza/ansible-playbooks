@@ -12,6 +12,7 @@
     state: present
 
 - name: Install docker packages
+  become: "{{ become_root }}"
   when: is_manjaro
   package:
     name:
