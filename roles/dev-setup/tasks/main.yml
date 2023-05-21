@@ -1,6 +1,6 @@
 ---
 - name: Install dev packages
-  become: yes
+  become: "{{ become_root }}"
   package:
     name:
       - npm
