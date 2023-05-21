@@ -28,7 +28,9 @@
 - name: Tap cask packages
   when: is_osx
   homebrew_tap:
-    name: homebrew/cask-versions
+    name:
+      - homebrew/cask-versions
+      - homebrew/cask-fonts
 
 - name: Install cask packages
   when: is_osx
@@ -41,4 +43,7 @@
       - 1password-cli
       - brave-browser
       - visual-studio-code-insiders
+      # fonts
+      - font-hack-nerd-font
+      - font-noto-nerd-font
     state: upgraded
