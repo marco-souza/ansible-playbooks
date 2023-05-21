@@ -1,1 +1,2 @@
-is_manjaro: "{{ ansible_facts['distribution'] == 'Archlinux' }}"
+is_manjaro: ansible_facts['distribution'] == 'Archlinux'
+become_root: "{{ 'yes' if is_manjaro else 'no' }}"

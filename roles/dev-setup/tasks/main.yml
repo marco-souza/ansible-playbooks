@@ -5,7 +5,7 @@
     name:
       - npm
       - nodejs
-      - wakatime
+      - "wakatime{{ '' if is_manjaro else '-cli' }}"
     state: present
 
 - name: Create global NPM_HOME
