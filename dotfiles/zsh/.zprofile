@@ -73,14 +73,6 @@
   [ ! -x "$(command -v deno)" ] && cargo install deno
 
 
-# APX Setup
-# =================
-  [ ! -x "$(command -v distrobox-create)" ] && \
-    curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
-  [ ! -x "$(command -v apx)" ] && \
-    go install github.com/vanilla-os/apx@latest
-
-
 # Node Setup
 # =================
   ## npm
