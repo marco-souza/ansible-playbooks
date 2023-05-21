@@ -1,6 +1,6 @@
 ---
 - name: Install base packages
-  become: yes
+  become: "{{ become_root }}"
   package:
     name:
       - zsh
