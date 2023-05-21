@@ -47,6 +47,7 @@
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
+    mode: '600'
   with_items:
     - src: "./dotfiles/ssh/id_rsa"
       dest: "$HOME/.ssh/id_rsa"
