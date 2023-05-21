@@ -1,0 +1,39 @@
+---
+- name: Install personal base packages
+  when: "{{ is_manjaro }}"
+  become: yes
+  package:
+    name:
+      - steam-native-runtime
+    state: present
+
+- name: Install AUR packages
+  when: "{{ is_manjaro }}"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - discord
+      - 1password
+      - brave-bin
+      - 1password-cli
+      - pop-wallpapers-git
+      - visual-studio-code-insiders-bin
+  
+- name: Stow user data
+  when: "{{ is_manjaro }}"
+  shell:
+    cmd: stow home -t $HOME
+    chdir: "{{ data_dir }}"
+
+- name: Install cask packages
+  when: "{{ is_osx }}"
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: upgraded
+  with_items:
+    - discord
+    - steam
+    - 1password
+    - 1password-cli
+    - brave-browser
+    - visual-studio-code-insiders

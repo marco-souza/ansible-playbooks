@@ -1,0 +1,3 @@
+data_dir: "/data/"
+is_osx: ansible_facts['os_family'] == 'Darwin'
+is_manjaro: ansible_facts['os_family'] == 'Archlinux' or ansible_facts['os_family'] == 'Archlinux'
