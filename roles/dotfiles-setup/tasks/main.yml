@@ -10,6 +10,8 @@
       - tree
       - stow
       - tmux
+      - wget
+      - curl
       - neovim
       - ripgrep
     state: present
