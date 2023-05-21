@@ -25,14 +25,20 @@
     cmd: stow home -t $HOME
     chdir: "{{ data_dir }}"
 
+- name: Tap cask packages
+  when: is_osx
+  homebrew_tap:
+    name: homebrew/cask-versions
+
 - name: Install cask packages
   when: is_osx
-  community.general.homebrew_cask:
+  homebrew_cask:
     name: "{{ item }}"
     state: upgraded
   with_items:
     - discord
     - steam
+    - iterm2
     - 1password
     - 1password-cli
     - brave-browser
