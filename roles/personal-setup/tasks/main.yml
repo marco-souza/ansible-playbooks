@@ -37,9 +37,10 @@
   when: is_osx
   homebrew_cask:
     name:
-      - discord
+      - docker
       - steam
       - iterm2
+      - discord
       - amethyst
       - 1password
       - 1password-cli
