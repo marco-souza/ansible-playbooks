@@ -3,5 +3,6 @@
   hosts: localhost
   roles:
     - desktop-setup
-    - packages-setup
+    - dotfiles-setup
+    - personal-setup
     - dev-setup
