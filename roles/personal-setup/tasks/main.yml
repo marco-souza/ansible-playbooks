@@ -33,13 +33,12 @@
 - name: Install cask packages
   when: is_osx
   homebrew_cask:
-    name: "{{ item }}"
+    name:
+      - discord
+      - steam
+      - iterm2
+      - 1password
+      - 1password-cli
+      - brave-browser
+      - visual-studio-code-insiders
     state: upgraded
-  with_items:
-    - discord
-    - steam
-    - iterm2
-    - 1password
-    - 1password-cli
-    - brave-browser
-    - visual-studio-code-insiders
