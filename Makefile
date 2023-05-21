@@ -24,3 +24,8 @@ osx: osx-setup.yml
 	fi
 	ansible-playbook osx-setup.yml -i localhost --ask-become-pass --ask-vault-pass
 
+decrypt:
+	ansible-vault decrypt dotfiles/ssh/id_rsa dotfiles/ssh/id_rsa.pub dotfiles/wakatime/.wakatime.cfg
+
+encrypt:
+	ansible-vault encrypt dotfiles/ssh/id_rsa dotfiles/ssh/id_rsa.pub dotfiles/wakatime/.wakatime.cfg
