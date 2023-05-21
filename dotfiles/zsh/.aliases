@@ -1,0 +1,114 @@
+# Linux Aliases
+############
+    alias ..="cd .."
+    alias ...="cd ../.."
+    alias rmf="rm -rf"
+
+
+# Package Aliases
+#################
+if [ -x "$(command -v apt)" ]; then
+    alias i="sudo apt install -y"
+    alias s="apt search"
+    alias r="sudo apt remove -y"
+    alias u="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y"
+elif [ -x "$(command -v yay)" ]; then
+    alias i="yay -Syu --noconfirm"
+    alias s="yay -Ss"
+    alias r="yay -Rsc"
+    alias u="yay -Syyu --noconfirm"
+elif [ -x "$(command -v pamac)" ]; then
+    alias i="pamac install --no-confirm"
+    alias s="pamac search"
+    alias r="pamac remove --no-confirm"
+    alias u="pamac update && sudo pamac upgrade"
+fi
+
+
+# Deno aliases
+#############
+    alias dn="deno"
+    alias dt="deno task"
+    alias dnr="deno run"
+    alias dni="deno install"
+
+
+# NPM Aliases
+#############
+    alias ni="npm i -g"
+    alias nr="npm r -g"
+    alias nu="npm up -g"
+
+
+# Yarn Aliases
+##############
+    alias pn="pnpm"
+    alias pnx="pnpx"
+    alias pni="pnpm install"
+    alias pnr="pnpm rm"
+    alias pnid="pnpm install -D"
+    alias pnc="pnpm create"
+    alias pnd="pnpm dev"
+    alias pnb="pnpm build"
+    alias pns="pnpm start"
+
+
+# Yarn Aliases
+##############
+    alias js="yarn"
+    alias js0="yarn init"
+    alias jsi="yarn add"
+    alias jsid="yarn add -D"
+    alias jsr="yarn remove"
+    alias jsu="yarn update"
+
+
+# Make Aliases
+##############
+    alias mk="make"
+
+
+# Distrobox Aliases
+################
+    alias dbx="distrobox"
+    alias dbe="distrobox enter"
+    alias dbc="distrobox create"
+    alias dbr="distrobox rm -f"
+
+
+# Docker Aliases
+################
+    alias dk="docker"
+    alias dc="docker-compose"
+    alias dm="docker-machine"
+    alias ds="docker stack"
+    alias dsd="docker stack deploy"
+    alias dsd="docker stack remove"
+    alias dkps="docker container ps"
+    alias ctop="docker rm ctop; docker run --rm -ti \
+        --name=ctop \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        quay.io/vektorlab/ctop:latest"
+
+
+# K8s Aliases
+#############
+    alias k="kubectl"
+    alias kg="kubectl get"
+    alias ka="kubectl apply -f"
+    alias kd="kubectl delete -f"
+
+# Text Editors
+################
+    alias hx=helix
+    alias vim=nvim
+    alias ev="nvim"
+    alias ec="code-insiders"
+
+
+# Tmux Editors
+################
+    alias t="tmux"
+    alias tt="tmux a"
+    alias ta="tmux attach-session -t"
+    alias tl="tmux list-session"

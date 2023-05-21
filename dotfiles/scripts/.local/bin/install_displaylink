@@ -1,0 +1,19 @@
+#! /bin/bash
+
+# installing DisplayLink
+pamac install displaylink
+
+# re-build displaylink to support linux 6+
+cd /tmp/
+git clone https://github.com/DisplayLink/evdi /tmp/evdi
+sudo cp /tmp/evdi/module/* /usr/src/evdi-1.12.0/
+
+# build and install dkms evdi driver for displaylink (Linux 6+)
+sudo dkms build -m evdi -v 1.12.0 --force
+sudo dkms install -m evdi -v 1.12.0 --force
+
+sudo systemctl enable displaylink
+sudo systemctl start displaylink
+
+echo 'All good! Please restart you system to ensure it works fine.'
+

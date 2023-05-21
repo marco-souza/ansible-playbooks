@@ -7,6 +7,7 @@
       - git
       - vim
       - fzf
+      - tree
       - stow
       - tmux
       - neovim
@@ -39,7 +40,6 @@
     - git
     - config
     - scripts
-    - wakatime
 
 - name: Setup zsh
   user:
@@ -60,3 +60,14 @@
     - repo: https://github.com/marco-souza/astronvim
       dest: $HOME/.config/nvim/lua/user
 
+- name: Copy Credentials
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - src: "./dotfiles/ssh/id_rsa"
+      dest: "$HOME/.ssh/id_rsa"
+    - src: "./dotfiles/ssh/id_rsa.pub"
+      dest: "$HOME/.ssh/id_rsa.pub"
+    - src: "./dotfiles/wakatime/.wakatime.cfg"
+      dest: "$HOME/.wakatime.cfg"

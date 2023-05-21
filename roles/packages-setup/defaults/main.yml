@@ -1,2 +1,2 @@
 data_dir: "/data/"
-dotfiles_dir: "/data/Nextcloud/workspace/dotfiles"
+dotfiles_dir: "$PWD/dotfiles"

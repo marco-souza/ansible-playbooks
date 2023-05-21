@@ -7,7 +7,7 @@ manjaro: manjaro-setup.yml
 	fi
 	# install ansible if needed
 	ansible-galaxy collection install kewlfft.aur
-	ansible-playbook manjaro-setup.yml -i localhost --ask-become-pass
+	ansible-playbook manjaro-setup.yml -i localhost --ask-become-pass --ask-vault-pass
 	echo "Setup done! Please restart your Manjaro"
 
 pop-os: pop-os-setup.yml
@@ -15,5 +15,5 @@ pop-os: pop-os-setup.yml
 	if [ ! -x $(ansible_path) ]; then \
 		sudo apt install ansible \
 	fi
-	ansible-playbook pop-os-setup.yml -i localhost --ask-become-pass
+	ansible-playbook pop-os-setup.yml -i localhost --ask-become-pass --ask-vault-pass
 

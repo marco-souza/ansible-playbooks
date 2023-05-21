@@ -1,0 +1,29 @@
+#! /usr/bin/env bash
+
+mcd() { mkdir $1; cd $1; }
+
+# kill
+tid() {
+    ps -ax | grep -i $1 | grep -v 0:00.00 | awk '{ print $1 }' | uniq
+}
+ak() { kill -9 $(tid $1) }
+
+# volume
+vol() { pactl -- set-sink-volume 0 $1% }
+
+export VOLUME=100
+vu() { vol +10 }
+vd() { vol -10 }
+
+tvol() {
+    if [ $VOLUME = 100 ]; then
+        export VOLUME=150
+    else
+        export VOLUME=100
+    fi
+    vol $VOLUME
+}
+
+# Distrobox 
+ax() { distrobox-export -a $1; }
+bx() { distrobox-export -b $(which $1) -ep $HOME/.local/bin/; }
