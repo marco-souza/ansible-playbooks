@@ -3,8 +3,13 @@
   become: "{{ become_root }}"
   package:
     name:
+      - go
       - npm
+      - rust
+      - deno
       - nodejs
+      - docker
+      - docker-compose
       - "wakatime{{ '' if is_manjaro else '-cli' }}"
     state: present
 

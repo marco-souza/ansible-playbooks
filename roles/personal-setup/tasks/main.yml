@@ -17,6 +17,7 @@
       - brave-bin
       - 1password-cli
       - pop-wallpapers-git
+      - nerd-fonts-fira-code
       - visual-studio-code-insiders-bin
   
 - name: Stow user data

@@ -2,7 +2,7 @@
 - [x] encrypt credentials using ansible-vaults
 - [x] setup .dotfiles
 - [ ] setup distrobox ??
-- [ ] install nerd-fonts
-- [ ] install go and rust using ansible
-- [ ] install deno packages
-- [ ] install docker
+- [x] install nerd-fonts
+- [x] install go and rust using ansible
+- [x] install deno packages
+- [x] install docker
