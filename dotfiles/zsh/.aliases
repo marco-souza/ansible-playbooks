@@ -7,7 +7,13 @@
 
 # Package Aliases
 #################
-if [ -x "$(command -v apt)" ]; then
+if [ -x "$(command -v brew)" ]; then
+    alias s="brew search"
+    alias r="brew remove"
+    alias i="brew install"
+    alias ic="brew install --cask"
+    alias u="brew update && brew update --cask"
+elif [ -x "$(command -v apt)" ]; then
     alias i="sudo apt install -y"
     alias s="apt search"
     alias r="sudo apt remove -y"
