@@ -1,6 +1,6 @@
 ---
 - name: Install personal base packages
-  when: "{{ is_manjaro }}"
+  when: is_manjaro
   become: yes
   package:
     name:
@@ -8,7 +8,7 @@
     state: present
 
 - name: Install AUR packages
-  when: "{{ is_manjaro }}"
+  when: is_manjaro
   kewlfft.aur.aur:
     use: yay
     name:
@@ -20,13 +20,13 @@
       - visual-studio-code-insiders-bin
   
 - name: Stow user data
-  when: "{{ is_manjaro }}"
+  when: is_manjaro
   shell:
     cmd: stow home -t $HOME
     chdir: "{{ data_dir }}"
 
 - name: Install cask packages
-  when: "{{ is_osx }}"
+  when: is_osx
   community.general.homebrew_cask:
     name: "{{ item }}"
     state: upgraded
