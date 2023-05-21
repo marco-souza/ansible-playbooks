@@ -8,11 +8,23 @@
       - rust
       - deno
       - nodejs
+      - "wakatime{{ '' if is_manjaro else '-cli' }}"
+    state: present
+
+- name: Install docker packages
+  when: is_manjaro
+  package:
+    name:
       - docker
       - docker-compose
       - docker-machine
-      - "wakatime{{ '' if is_manjaro else '-cli' }}"
     state: present
+
+- name: Install cask docker packages
+  when: not is_manjaro
+  homebrew_cask:
+    name:
+      - docker
 
 - name: Create global NPM_HOME
   file:
