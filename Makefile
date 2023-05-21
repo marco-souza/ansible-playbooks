@@ -13,7 +13,14 @@ manjaro: manjaro-setup.yml
 pop-os: pop-os-setup.yml
 	# install ansible if needed
 	if [ ! -x $(ansible_path) ]; then \
-		sudo apt install ansible \
+		sudo apt install ansible; \
 	fi
 	ansible-playbook pop-os-setup.yml -i localhost --ask-become-pass --ask-vault-pass
+
+osx: osx-setup.yml
+	# install ansible if needed
+	if [ ! -x $(ansible_path) ]; then \
+		brew install ansible; \
+	fi
+	ansible-playbook osx-setup.yml -i localhost --ask-become-pass --ask-vault-pass
 
