@@ -1,5 +1,8 @@
-- [ ] make pop-os installer
-- [ ] encrypt credentials using ansible-vaults
-- [ ] setup .dotfiles
+- [x] make pop-os installer
+- [x] encrypt credentials using ansible-vaults
+- [x] setup .dotfiles
 - [ ] setup distrobox ??
-- [ ] 
+- [ ] install nerd-fonts
+- [ ] install go and rust using ansible
+- [ ] install deno packages
+- [ ] install docker
