@@ -1,5 +1,5 @@
 ---
-- name: Setup personal laptop
+- name: Setup pop-os laptop
   hosts: localhost
   roles:
     - dotfiles-setup

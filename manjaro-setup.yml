@@ -1,5 +1,5 @@
 ---
-- name: Setup personal laptop
+- name: Setup manjaro laptop
   hosts: localhost
   roles:
     - desktop-setup
