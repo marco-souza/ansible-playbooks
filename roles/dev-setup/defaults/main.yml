@@ -1,2 +1,15 @@
 is_manjaro: "{{ ansible_facts['distribution'] == 'Archlinux' }}"
 become_root: "{{ 'yes' if is_manjaro else 'no' }}"
+npm_packages:
+  - yarn
+  - pnpm
+  - tsx
+  - vercel
+  - emmet-ls
+  - typescript
+  - '@nestjs/cli'
+  # LSP
+  - vscode-langservers-extracted
+  - typescript-language-server
+  - tailwindcss-language-server
+  - '@ansible/ansible-language-server'

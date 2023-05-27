@@ -41,12 +41,5 @@
     name: "{{ item }}"
     global: true
     state: present
-  with_items:
-    - yarn
-    - pnpm
-    - tsx
-    - vercel
-    - emmet-ls
-    - typescript
-    - typescript-language-server
-    - tailwindcss-language-server
+  with_items: "{{ npm_packages }}"
+
