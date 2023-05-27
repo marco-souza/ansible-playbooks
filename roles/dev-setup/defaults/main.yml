@@ -5,6 +5,7 @@ npm_packages:
   - pnpm
   - tsx
   - vercel
+  - remark
   - emmet-ls
   - typescript
   - '@nestjs/cli'
