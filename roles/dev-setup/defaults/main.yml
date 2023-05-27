@@ -13,5 +13,6 @@ npm_packages:
   - vscode-langservers-extracted
   - typescript-language-server
   - tailwindcss-language-server
+  - remark-language-server
   - '@prisma/language-server'
   - '@ansible/ansible-language-server'
