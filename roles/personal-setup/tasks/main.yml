@@ -1,6 +1,6 @@
 ---
-- name: Install shared packages
-  become: yes
+- name: Install shared packages (shared)
+  become: "{{ is_manjaro }}"
   package:
     name:
       - htop
@@ -9,7 +9,7 @@
       - make
     state: present
 
-- name: Install personal base packages
+- name: Install personal base packages (manjaro)
   when: is_manjaro
   become: yes
   package:
@@ -17,7 +17,7 @@
       - steam-native-runtime
     state: present
 
-- name: Install AUR packages
+- name: Install AUR packages (manjaro)
   when: is_manjaro
   kewlfft.aur.aur:
     use: yay
@@ -30,20 +30,20 @@
       - telegram-desktop-bin
       - visual-studio-code-insiders-bin
   
-- name: Stow user data
+- name: Stow user data (manjaro)
   when: is_manjaro
   shell:
     cmd: stow home -t $HOME
     chdir: "{{ data_dir }}"
 
-- name: Tap cask packages
+- name: Tap cask packages (osx)
   when: is_osx
   homebrew_tap:
     name:
       - homebrew/cask-versions
       - homebrew/cask-fonts
 
-- name: Install cask packages
+- name: Install cask packages (osx)
   when: is_osx
   homebrew_cask:
     name:
@@ -55,7 +55,8 @@
       - 1password-cli
       - brave-browser
       - visual-studio-code-insiders
-      # fonts
-      - font-hack-nerd-font
-      - font-noto-nerd-font
     state: upgraded
+
+- name: Install Nerd fonts (osx)
+  when: is_osx
+  shell: "brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs brew install --cask || true"
