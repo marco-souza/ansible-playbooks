@@ -1,4 +1,14 @@
 ---
+- name: Install shared packages
+  become: yes
+  package:
+    name:
+      - htop
+      - git
+      - curl
+      - make
+    state: present
+
 - name: Install personal base packages
   when: is_manjaro
   become: yes
@@ -37,7 +47,6 @@
   when: is_osx
   homebrew_cask:
     name:
-      - htop
       - steam
       - iterm2
       - discord
