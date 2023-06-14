@@ -37,6 +37,7 @@
   when: is_osx
   homebrew_cask:
     name:
+      - htop
       - steam
       - iterm2
       - discord

@@ -113,3 +113,4 @@
     eval "$(pyenv virtualenv-init -)"
   fi
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
