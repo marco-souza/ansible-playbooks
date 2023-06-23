@@ -81,6 +81,13 @@
   npm config set prefix $NPM_HOME
   [ ! -e $NPM_HOME ] && mkdir -p $NPM_HOME
 
+  ## n
+  export N_PREFIX=$HOME/.local/share
+  export N_HOME=$N_PREFIX/n
+  export PATH=$PATH:$N_HOME/bin
+  [ ! -e $N_HOME ] && mkdir -p $N_HOME
+  [ ! -x "$(command -v n)" ] && npm i -g n
+
   ## yarn
   export YARN_HOME=$HOME/.config/yarn
   export PATH=$PATH:$YARN_HOME/global/node_modules/.bin
