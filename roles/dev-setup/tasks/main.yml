@@ -8,6 +8,7 @@
       - rust
       - deno
       - nodejs
+      - tailscale
       - "wakatime{{ '' if is_manjaro else '-cli' }}"
     state: present
 

@@ -28,6 +28,7 @@
       - 1password-cli
       - pop-wallpapers-git
       - telegram-desktop-bin
+      - tailscale-systray-git
       - visual-studio-code-insiders-bin
   
 - name: Stow user data (manjaro)
