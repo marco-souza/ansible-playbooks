@@ -84,7 +84,7 @@
   ## n
   export N_PREFIX=$HOME/.local/share
   export N_HOME=$N_PREFIX/n
-  export PATH=$PATH:$N_HOME/bin
+  export PATH=$PATH:$N_PREFIX/bin
   [ ! -e $N_HOME ] && mkdir -p $N_HOME
   [ ! -x "$(command -v n)" ] && npm i -g n
 
