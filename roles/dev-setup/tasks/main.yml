@@ -27,6 +27,8 @@
   homebrew_cask:
     name:
       - docker
+      - tailscale
+      - dbeaver-community
 
 - name: Create global NPM_HOME
   file:
