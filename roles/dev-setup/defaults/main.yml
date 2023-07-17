@@ -16,3 +16,4 @@ npm_packages:
   - remark-language-server
   - '@prisma/language-server'
   - '@ansible/ansible-language-server'
+  - '@withgraphite/graphite-cli'
