@@ -187,3 +187,16 @@
   for file_path in ${file_paths[@]}; do
     [ -f $file_path ] && source $file_path
   done
+
+
+# Load completions
+# =================
+  completions_commands=(
+    # graphite-cli
+    'gt completion'
+  )
+
+  # apply files
+  for comp in ${completions_commands[@]}; do
+    eval "$(eval $comp)"
+  done
