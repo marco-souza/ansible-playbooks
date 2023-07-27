@@ -1,2 +1,2 @@
-dotfiles_dir: "$PWD/dotfiles"
+dotfiles_dir: "$PWD/../dotfiles"
 become_root: "{{ 'yes' if ansible_facts['distribution'] == 'Archlinux' else 'no' }}"

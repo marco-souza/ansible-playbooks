@@ -51,9 +51,9 @@
     dest: "{{ item.dest }}"
     mode: '600'
   with_items:
-    - src: "./dotfiles/ssh/id_rsa"
+    - src: "../dotfiles/ssh/id_rsa"
       dest: "$HOME/.ssh/id_rsa"
-    - src: "./dotfiles/ssh/id_rsa.pub"
+    - src: "../dotfiles/ssh/id_rsa.pub"
       dest: "$HOME/.ssh/id_rsa.pub"
-    - src: "./dotfiles/wakatime/.wakatime.cfg"
+    - src: "../dotfiles/wakatime/.wakatime.cfg"
       dest: "$HOME/.wakatime.cfg"
