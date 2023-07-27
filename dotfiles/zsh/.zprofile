@@ -104,6 +104,15 @@
     mkdir -p $PNPM_HOME
   fi
 
+# Bun Setup
+# =================
+  export BUN_HOME="$HOME/.bun"
+  export PATH="$BUN_HOME/bin:$PATH"
+  # install
+  [ ! -x "$(command -v bun)" ] && \
+    curl -fsSL https://bun.sh/install | bash
+
+
 # Python Setup
 # ===================
   export PYENV_ROOT="$HOME/.pyenv"

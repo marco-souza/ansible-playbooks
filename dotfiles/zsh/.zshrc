@@ -194,6 +194,7 @@
   completions_commands=(
     # graphite-cli
     'gt completion'
+    'bun completions'
   )
 
   # apply files
