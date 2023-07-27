@@ -40,10 +40,10 @@
     clone: yes
     update: yes
   with_items:
-    - repo: https://github.com/AstroNvim/AstroNvim
+    - repo: git@github.com:NvChad/NvChad.git
       dest: $HOME/.config/nvim
-    - repo: https://github.com/marco-souza/astronvim
-      dest: $HOME/.config/nvim/lua/user
+    - repo: git@github.com:marco-souza/nvchad.git
+      dest: $HOME/.config/nvim/lua/custom
 
 - name: Setup Credentials
   copy:
