@@ -7,7 +7,7 @@ manjaro:
 	fi
 	# install ansible if needed
 	ansible-galaxy install -r requirements.arch.yml
-	ansible-playbook playbooks/manjaro-setup.yml --ask-become-pass
+	ansible-playbook playbooks/manjaro.yml --ask-become-pass
 	echo "Setup done! Please restart your Manjaro"
 
 pop-os:
@@ -15,14 +15,14 @@ pop-os:
 	if [ ! -x $(ansible_path) ]; then \
 		sudo apt install ansible; \
 	fi
-	ansible-playbook playbooks/pop-os-setup.yml -i localhost --ask-become-pass
+	ansible-playbook playbooks/pop-os.yml -i localhost --ask-become-pass
 
 osx:
 	# install ansible if needed
 	if [ ! -x $(ansible_path) ]; then \
 		brew install ansible; \
 	fi
-	ansible-playbook playbooks/osx-setup.yml -i localhost --ask-become-pass
+	ansible-playbook playbooks/osx.yml -i localhost --ask-become-pass
 
 decrypt:
 	ansible-vault decrypt dotfiles/ssh/id_rsa dotfiles/ssh/id_rsa.pub dotfiles/wakatime/.wakatime.cfg

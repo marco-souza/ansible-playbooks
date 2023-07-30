@@ -1,7 +1,0 @@
----
-- name: Setup pop-os laptop
-  hosts: localhost
-  roles:
-    - dotfiles-setup
-    - personal-setup
-    - dev-setup

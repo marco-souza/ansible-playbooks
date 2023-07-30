@@ -1,0 +1,9 @@
+---
+- name: Setup pop-os laptop
+  hosts: localhost
+  roles:
+    - install-packages
+    - dotfiles
+    - neovim
+    - docker
+    - node

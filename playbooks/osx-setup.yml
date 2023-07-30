@@ -1,7 +1,0 @@
----
-- name: Setup osx laptop
-  hosts: localhost
-  roles:
-    - dotfiles-setup
-    - personal-setup
-    - dev-setup
