@@ -5,6 +5,12 @@
     name: "{{ base_packages }}"
     state: present
 
+- name: Stow user data (manjaro)
+  when: is_manjaro
+  shell:
+    cmd: stow home -t $HOME
+    chdir: "{{ data_dir }}"
+
 - name: Stow cofig files
   shell:
     cmd: stow {{ item }} -t $HOME
