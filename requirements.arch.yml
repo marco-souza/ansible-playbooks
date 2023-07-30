@@ -1,0 +1,3 @@
+collections:
+  # install AUR
+  - name: kewlfft.aur

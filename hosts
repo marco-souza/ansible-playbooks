@@ -1,4 +1,3 @@
-dev.podcodar.com
 
 [all:vars]
 ansible_connection=ssh

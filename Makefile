@@ -6,8 +6,8 @@ manjaro:
 		sudo pacman -S ansible; \
 	fi
 	# install ansible if needed
-	ansible-galaxy collection install kewlfft.aur
-	ansible-playbook playbooks/manjaro-setup.yml -i localhost --ask-become-pass --ask-vault-pass
+	ansible-galaxy install -r requirements.arch.yml
+	ansible-playbook playbooks/manjaro-setup.yml --ask-become-pass --ask-vault-pass
 	echo "Setup done! Please restart your Manjaro"
 
 pop-os:
