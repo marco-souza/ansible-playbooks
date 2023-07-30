@@ -1,0 +1,17 @@
+---
+- name: Create global NPM_HOME
+  file:
+    path: "{{ node_home }}"
+    state: directory
+    mode: '0755'
+
+- name: Set node prefix
+  shell: npm config set prefix "{{ node_home }}"
+
+- name: Install NPM packages
+  npm:
+    name: "{{ item }}"
+    global: true
+    state: present
+  with_items: "{{ npm_packages }}"
+

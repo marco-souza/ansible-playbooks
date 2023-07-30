@@ -1,0 +1,19 @@
+node_home: $HOME/.npm-global
+npm_packages:
+  - yarn
+  - pnpm
+  - tsx
+  - vercel
+  - remark
+  - emmet-ls
+  - typescript
+  - '@nestjs/cli'
+  # LSP
+  - vscode-langservers-extracted
+  - typescript-language-server
+  - tailwindcss-language-server
+  - remark-language-server
+  - '@prisma/language-server'
+  - '@ansible/ansible-language-server'
+  - '@withgraphite/graphite-cli'
+
