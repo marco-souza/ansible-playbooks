@@ -1,6 +1,0 @@
----
-- name: Install dev packages
-  become: "{{ become_root }}"
-  package:
-    name: "{{ dev_packages }}"
-    state: present

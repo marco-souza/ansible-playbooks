@@ -1,10 +1,4 @@
 ---
-- name: Install base packages
-  become: "{{ become_root }}"
-  package:
-    name: "{{ base_packages }}"
-    state: present
-
 - name: Setup zsh
   user:
     name: "{{ item }}"

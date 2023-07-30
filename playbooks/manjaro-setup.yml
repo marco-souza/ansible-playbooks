@@ -3,9 +3,8 @@
   hosts: localhost
   roles:
     - desktop-setup
-    - personal-setup
-    - neovim
+    - install-packages
     - dotfiles
-    - dev-packages
+    - neovim
     - docker
     - node

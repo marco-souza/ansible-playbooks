@@ -1,3 +1,0 @@
-data_dir: "/data/"
-is_manjaro: "{{ ansible_facts['distribution'] == 'Archlinux' }}"
-is_osx: "{{ ansible_facts['distribution'] == 'MacOSX' }}"
