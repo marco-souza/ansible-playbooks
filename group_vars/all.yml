@@ -5,6 +5,31 @@ become_root: "{{ 'yes' if is_manjaro else 'no' }}"
 
 # data vars
 data_dir: "/data/"
+dotfiles_dir: "$PWD/../dotfiles"
+dotfiles_packages:
+  - zsh
+  - git
+  - config
+  - scripts
+credentials: 
+  - src: "../dotfiles/ssh/id_rsa"
+    dest: "$HOME/.ssh/id_rsa"
+  - src: "../dotfiles/ssh/id_rsa.pub"
+    dest: "$HOME/.ssh/id_rsa.pub"
+  - src: "../dotfiles/wakatime/.wakatime.cfg"
+    dest: "$HOME/.wakatime.cfg"
+
+# package vars
+base_packages:
+  - zsh
+  - git
+  - vim
+  - fzf
+  - tree
+  - stow
+  - tmux
+  - wget
+  - curl
 
 # dev vars
 dev_packages:

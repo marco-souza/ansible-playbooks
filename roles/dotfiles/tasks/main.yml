@@ -1,0 +1,27 @@
+---
+- name: Install base packages
+  become: "{{ become_root }}"
+  package:
+    name: "{{ base_packages }}"
+    state: present
+
+- name: Stow cofig files
+  shell:
+    cmd: stow {{ item }} -t $HOME
+    chdir: "{{ dotfiles_dir }}"
+  with_items: "{{ dotfiles_packages }}"
+
+- name: Setup zsh
+  user:
+    name: "{{ item }}"
+    shell: /bin/zsh
+  with_items:
+    - marco
+
+- name: Setup Credentials
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: '600'
+  with_items: "{{ credentials }}"
+
