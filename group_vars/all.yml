@@ -1,3 +1,12 @@
+# system vars
+is_manjaro: "{{ ansible_facts['distribution'] == 'Archlinux' }}"
+is_osx: "{{ ansible_facts['distribution'] == 'MacOSX' }}"
+become_root: "{{ 'yes' if is_manjaro else 'no' }}"
+
+# data vars
+data_dir: "/data/"
+
+# node vars
 node_home: $HOME/.npm-global
 npm_packages:
   - yarn

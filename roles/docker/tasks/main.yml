@@ -1,0 +1,15 @@
+- name: (arch) Install docker packages
+  become: "{{ become_root }}"
+  when: is_manjaro
+  package:
+    name:
+      - docker
+      - docker-compose
+      - docker-machine
+    state: present
+
+- name: (osx) Install docker packages
+  when: is_osx
+  homebrew_cask:
+    name:
+      - docker
