@@ -1,0 +1,17 @@
+---
+- name: Install base packages
+  become: "{{ become_root }}"
+  package:
+    name:
+      - fzf
+      - neovim
+      - ripgrep
+    state: present
+
+- name: Setup neovim
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    clone: yes
+    update: yes
+  with_items: "{{ nvim_repos }}"
