@@ -1,6 +1,3 @@
-users:
-  - user: marco
-
 shortcuts:
   - schema: org.gnome.desktop.wm.keybindings
     shortcut: "['<Super><Control><Shift>Right', '<Super><Control><Shift>KP_Right', '<Super><Control><Shift>l']"
