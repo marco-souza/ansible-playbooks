@@ -6,6 +6,16 @@ become_root: "{{ 'yes' if is_manjaro else 'no' }}"
 # data vars
 data_dir: "/data/"
 
+# dev vars
+dev_packages:
+  - go
+  - npm
+  - rust
+  - deno
+  - nodejs
+  - tailscale
+  - "wakatime{{ '' if is_manjaro else '-cli' }}"
+
 # node vars
 node_home: $HOME/.npm-global
 npm_packages:
