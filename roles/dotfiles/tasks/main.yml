@@ -1,6 +1,6 @@
 ---
 - name: Setup zsh
-  user:
+  ansible.builtin.user:
     name: "{{ item }}"
     shell: /bin/zsh
   with_items:
@@ -8,20 +8,19 @@
 
 - name: Stow user data (manjaro)
   when: is_manjaro
-  shell:
+  ansible.builtin.shell:
     cmd: stow home -t $HOME
     chdir: "{{ data_dir }}"
 
 - name: Stow cofig files
-  shell:
+  ansible.builtin.shell:
     cmd: stow {{ item }} -t $HOME
     chdir: "{{ dotfiles_dir }}"
   with_items: "{{ dotfiles_packages }}"
 
 - name: Setup Credentials
-  copy:
+  ansible.builtin.copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    mode: '600'
+    mode: "600"
   with_items: "{{ credentials }}"
-

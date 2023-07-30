@@ -1,11 +1,12 @@
+---
 # system vars
 is_manjaro: "{{ ansible_facts['distribution'] == 'Archlinux' }}"
 is_osx: "{{ ansible_facts['distribution'] == 'MacOSX' }}"
 become_root: "{{ 'yes' if is_manjaro else 'no' }}"
 
 # data vars
-data_dir: "/data/"
-dotfiles_dir: "$PWD/../dotfiles"
+data_dir: /data/
+dotfiles_dir: $PWD/../dotfiles
 dotfiles_packages:
   - zsh
   - git
@@ -16,13 +17,13 @@ nvim_repos:
     dest: $HOME/.config/nvim
   - repo: git@github.com:marco-souza/nvchad.git
     dest: $HOME/.config/nvim/lua/custom
-credentials: 
-  - src: "../dotfiles/ssh/id_rsa"
-    dest: "$HOME/.ssh/id_rsa"
-  - src: "../dotfiles/ssh/id_rsa.pub"
-    dest: "$HOME/.ssh/id_rsa.pub"
-  - src: "../dotfiles/wakatime/.wakatime.cfg"
-    dest: "$HOME/.wakatime.cfg"
+credentials:
+  - src: ../dotfiles/ssh/id_rsa
+    dest: $HOME/.ssh/id_rsa
+  - src: ../dotfiles/ssh/id_rsa.pub
+    dest: $HOME/.ssh/id_rsa.pub
+  - src: ../dotfiles/wakatime/.wakatime.cfg
+    dest: $HOME/.wakatime.cfg
 
 # package vars
 aur_packages:
@@ -66,7 +67,7 @@ dev_packages:
   - deno
   - nodejs
   - tailscale
-  - "wakatime{{ '' if is_manjaro else '-cli' }}"
+  - wakatime{{ '' if is_manjaro else '-cli' }}
 
 # node vars
 node_home: $HOME/.npm-global
@@ -78,13 +79,12 @@ npm_packages:
   - remark
   - emmet-ls
   - typescript
-  - '@nestjs/cli'
+  - "@nestjs/cli"
   # LSP
   - vscode-langservers-extracted
   - typescript-language-server
   - tailwindcss-language-server
   - remark-language-server
-  - '@prisma/language-server'
-  - '@ansible/ansible-language-server'
-  - '@withgraphite/graphite-cli'
-
+  - "@prisma/language-server"
+  - "@ansible/ansible-language-server"
+  - "@withgraphite/graphite-cli"

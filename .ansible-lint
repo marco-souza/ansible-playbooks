@@ -1,0 +1,11 @@
+---
+exclude_paths:
+  - dotfiles
+  - roles/manjaro_gnome
+skip_list:
+  - yaml[line-length]
+  - latest[git]
+  # shell commands
+  - command-instead-of-shell
+  - risky-shell-pipe
+  - no-changed-when

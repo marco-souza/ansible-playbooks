@@ -20,3 +20,6 @@ decrypt:
 
 encrypt:
 	ansible-vault encrypt dotfiles/ssh/id_rsa dotfiles/ssh/id_rsa.pub dotfiles/wakatime/.wakatime.cfg
+
+lint:
+	ansible-lint --write

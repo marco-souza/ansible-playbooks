@@ -2,7 +2,7 @@
 - name: Setup osx laptop
   hosts: localhost
   roles:
-    - install-packages
+    - install_packages
     - dotfiles
     - neovim
     - docker

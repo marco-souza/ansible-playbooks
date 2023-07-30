@@ -1,7 +1,7 @@
 ---
 - name: Install base packages
   become: "{{ become_root }}"
-  package:
+  ansible.builtin.package:
     name:
       - fzf
       - neovim
@@ -9,9 +9,9 @@
     state: present
 
 - name: Setup neovim
-  git:
+  ansible.builtin.git:
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
-    clone: yes
-    update: yes
+    clone: true
+    update: true
   with_items: "{{ nvim_repos }}"

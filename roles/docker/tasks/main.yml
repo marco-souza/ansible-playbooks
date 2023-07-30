@@ -1,7 +1,8 @@
+---
 - name: (arch) Install docker packages
   become: "{{ become_root }}"
   when: is_manjaro
-  package:
+  ansible.builtin.package:
     name:
       - docker
       - docker-compose
@@ -10,6 +11,6 @@
 
 - name: (osx) Install docker packages
   when: is_osx
-  homebrew_cask:
+  community.general.homebrew_cask:
     name:
       - docker

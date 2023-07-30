@@ -1,7 +1,7 @@
 ---
 - name: Install Gnome PopOS! shell
-  become: yes
-  package:
+  become: true
+  ansible.builtin.package:
     name:
       - gnome-desktop
       - gnome-tweaks
@@ -21,12 +21,12 @@
     state: present
 
 - name: Remap PopOS! laucher
-  shell: |
+  ansible.builtin.shell: |
     gsettings set "{{ item.schema }}" "{{ item.command }}" "{{ item.shortcut }}"
   with_items: "{{ shortcuts }}"
 
 - name: Create custom shortcuts
-  shell: |
+  ansible.builtin.shell: |
     gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
     gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Terminal'
     gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'zsh -c "alacritty || gnome-terminal"'

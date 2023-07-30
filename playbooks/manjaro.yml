@@ -2,8 +2,8 @@
 - name: Setup manjaro laptop
   hosts: localhost
   roles:
-    - install-packages
-    - manjaro-gnome
+    - install_packages
+    - manjaro_gnome
     - dotfiles
     - neovim
     - docker
