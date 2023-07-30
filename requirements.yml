@@ -1,3 +1,4 @@
+---
 collections:
-  # install AUR
   - name: kewlfft.aur
+  - name: community.general
