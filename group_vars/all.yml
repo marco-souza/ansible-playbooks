@@ -42,7 +42,6 @@ cask_packages:
   - iterm2
   - discord
   - amethyst
-  - ollama
   - notion
   - 1password
   - 1password-cli
@@ -69,6 +68,7 @@ dev_packages:
   - helix
   - nodejs
   - tailscale
+  - ollama
   - wakatime{{ '' if is_manjaro else '-cli' }}
 
 # node vars
