@@ -1,0 +1,18 @@
+---
+- name: Install Hyprland desktop
+  become: true
+  ansible.builtin.package:
+    name:
+      # hyprland
+      - wofi
+      - waybar
+      - hyprland
+      - hyprpaper
+      - flameshot
+      - alacritty
+      # fonts
+      - ttf-fira-sans
+      - ttf-fira-mono
+      - ttf-roboto-slab
+      - ttf-font-awesome
+    state: present

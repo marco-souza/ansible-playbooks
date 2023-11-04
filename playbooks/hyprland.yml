@@ -1,0 +1,10 @@
+---
+- name: Setup Hyprland Desktop
+  hosts: localhost
+  roles:
+    - install_packages
+    - dotfiles
+    - hyprland
+    - neovim
+    - docker
+    - node
