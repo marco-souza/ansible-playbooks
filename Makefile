@@ -3,13 +3,9 @@ ansible_path := "$(shell command -v ansible)"
 deps:
 	ansible-galaxy install -r requirements.yml
 
-hypr: deps
-	ansible-playbook playbooks/hyprland.yml --ask-become-pass
-	echo "Setup done! Please restart your Hypr Manjaro"
-
-gnome: deps
+manjaro: deps
 	ansible-playbook playbooks/manjaro.yml --ask-become-pass
-	echo "Setup done! Please restart your Gnome Manjaro"
+	echo "Setup done! Please restart your Manjaro"
 
 osx: deps
 	ansible-playbook playbooks/osx.yml -i localhost --ask-become-pass

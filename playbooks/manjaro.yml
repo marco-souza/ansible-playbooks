@@ -5,6 +5,7 @@
     - fonts
     - install_packages
     - dotfiles
+    - hyprland
     - material-shell
     - neovim
     - docker
