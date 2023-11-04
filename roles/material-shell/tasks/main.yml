@@ -1,0 +1,15 @@
+---
+- name: Install Gnome Material Shell
+  become: true
+  ansible.builtin.package:
+    name:
+      - gnome-desktop
+      - gnome-tweaks
+    state: present
+
+- name: Enable Gnome Extensions
+  ansible.builtin.shell: |
+    gnome-extensions enable "{{ item }}"
+  with_items:
+    - material-shell@papyelgringo
+
