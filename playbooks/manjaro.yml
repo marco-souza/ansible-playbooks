@@ -1,10 +1,11 @@
 ---
-- name: Setup manjaro laptop
+- name: Setup Gnome Desktop
   hosts: localhost
   roles:
+    - fonts
     - install_packages
-    - manjaro_gnome
     - dotfiles
+    - material-shell
     - neovim
     - docker
     - node

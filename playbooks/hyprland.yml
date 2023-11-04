@@ -2,6 +2,7 @@
 - name: Setup Hyprland Desktop
   hosts: localhost
   roles:
+    - fonts
     - install_packages
     - dotfiles
     - hyprland

@@ -5,15 +5,11 @@ deps:
 
 hypr: deps
 	ansible-playbook playbooks/hyprland.yml --ask-become-pass
-	echo "Setup done! Please restart your Manjaro"
+	echo "Setup done! Please restart your Hypr Manjaro"
 
-manjaro: deps
+gnome: deps
 	ansible-playbook playbooks/manjaro.yml --ask-become-pass
-	echo "Setup done! Please restart your Manjaro"
-
-pop-os: deps
-	ansible-playbook playbooks/pop-os.yml -i localhost --ask-become-pass
-	echo "Setup done! Please restart your Pop-OS!"
+	echo "Setup done! Please restart your Gnome Manjaro"
 
 osx: deps
 	ansible-playbook playbooks/osx.yml -i localhost --ask-become-pass
