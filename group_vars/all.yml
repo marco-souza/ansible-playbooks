@@ -33,7 +33,7 @@ aur_packages:
   - 1password-cli
   - pop-wallpapers-git
   - telegram-desktop-bin
-  - tailscale-systray-git
+  # - tailscale-systray-git
   - visual-studio-code-insiders-bin
   - steam-native-runtime
 
