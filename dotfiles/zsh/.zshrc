@@ -13,9 +13,6 @@
   # Path to your oh-my-zsh installation.
   export ZSH="$HOME/.oh-my-zsh"
 
-  # Path to your Snap installation.
-  export PATH=$PATH:/snap/bin
-
   # Set name of the theme to load --- if set to "random", it will
   # load a random theme each time oh-my-zsh is loaded, in which case,
   # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -174,9 +171,9 @@
   file_paths=(
     # zsh
     $ZSH/oh-my-zsh.sh
-    # XeroLinux
-    #  $HOME/.xaliases
     $HOME/.p10k.zsh
+    # completions
+    $HOME/.bun/_bun
     # aliases
     $HOME/.aliases
     # scripts
@@ -192,12 +189,10 @@
 # Load completions
 # =================
   completions_commands=(
-    # graphite-cli
     'gt completion'
-    'bun completions'
   )
 
   # apply files
   for comp in ${completions_commands[@]}; do
-    eval "$(eval $comp)"
+    eval $(eval $comp)
   done
