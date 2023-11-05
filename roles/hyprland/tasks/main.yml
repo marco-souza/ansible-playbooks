@@ -8,6 +8,5 @@
       - waybar
       - hyprland
       - hyprpaper
-      - flameshot
       - alacritty
     state: present
