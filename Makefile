@@ -1,9 +1,12 @@
 ansible_path := "$(shell command -v ansible)"
 
+deps-arch:
+	pamac install make ansible yay
+
 deps:
 	ansible-galaxy install -r requirements.yml
 
-manjaro: deps
+manjaro: deps-arch deps
 	ansible-playbook playbooks/manjaro.yml --ask-become-pass
 	echo "Setup done! Please restart your Manjaro"
 
