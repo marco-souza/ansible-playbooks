@@ -1,0 +1,11 @@
+---
+- name: Install fonts
+  become: true
+  ansible.builtin.package:
+    name:
+      # fonts
+      - ttf-fira-sans
+      - ttf-fira-mono
+      - ttf-roboto-slab
+      - ttf-font-awesome
+    state: present

@@ -10,8 +10,7 @@
   [[ -x firefox ]] && export BROWSER=$(which firefox)
   [[ -x google-chrome-stable ]] && export BROWSER=$(which google-chrome-stable)
   [[ -x brave ]] && export BROWSER=$(which brave)
-
-  export SHELL=$(which zsh)
+  [[ -x zsh ]] && export SHELL=$(which zsh)
 
   export EDITOR="/usr/bin/vim"
   [[ -x nvim ]] && export EDITOR=$(which nvim)
@@ -36,6 +35,11 @@
   # export LC_NUMERIC=en_US.UTF-8
   # export LANG=en_US.UTF-8
 
+# Pkgx Setup
+# ===============
+  [ ! -x "$(command -v pkgx)" ] && curl -fsS https://pkgx.sh | sh
+  eval "$(pkgx --shellcode)"
+
 
 # Go Setup
 # ===============
@@ -43,10 +47,9 @@
   export GO_BIN=$HOME/.local/share
   export GO_GLOBAL=$GO_BIN/go/bin
   export PATH=$PATH:$GOPATH/bin:$GO_GLOBAL
-  export GO_DOWNLOAD_URL="https://go.dev/dl/go1.19.4.linux-amd64.tar.gz"
   [ ! -e $GOPATH ] && mkdir -p $GOPATH
   [ ! -x "$(command -v go)" ] && \
-    wget -c $GO_DOWNLOAD_URL -O - | tar -xz -C $GO_BIN
+    env +go +gopls
 
 
 # Rust Setup
@@ -54,15 +57,20 @@
   export RUST_HOME="$HOME/.cargo"
   export RUST_BIN="$RUST_HOME/bin"
   export PATH=$PATH:$RUST_BIN
+
   # install rust
   [ ! -e $RUST_HOME ] && mkdir -p $RUST_HOME
+  [ ! -e $RUST_BIN ] && mkdir -p $RUST_BIN
   [ ! -x "$(command -v cargo)" ] || [ ! -x "$(command -v rustc)" ] && \
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    env +rust +rustup +cargo && \
+    rustup default stable
+
   # install rust-analyzer
   [ ! -f $RUST_BIN/rust-analyzer ] && 
     rustup component add rust-analyzer && \
     ln -s $(rustup which --toolchain stable rust-analyzer) $RUST_BIN
-  [ ! -e $RUST_HOME/env ] && source "$RUST_HOME/env"
+
+  [ -e $RUST_HOME/env ] && source "$RUST_HOME/env"
 
 
 # Deno Setup
@@ -70,7 +78,7 @@
   export DENO_HOME="$HOME/.deno"
   export PATH=$PATH:$DENO_HOME/bin
   [ ! -e $DENO_HOME ] && mkdir -p $DENO_HOME
-  [ ! -x "$(command -v deno)" ] && cargo install deno
+  [ ! -x "$(command -v deno)" ] && env +deno
 
 
 # Node Setup
@@ -78,8 +86,11 @@
   ## npm
   export NPM_HOME=$HOME/.npm-global
   export PATH=$PATH:$NPM_HOME/bin
-  npm config set prefix $NPM_HOME
+  # install
   [ ! -e $NPM_HOME ] && mkdir -p $NPM_HOME
+  [ ! -x "$(command -v node)" ] && env +node +npm
+  # setup
+  npm config set prefix $NPM_HOME
 
   ## n
   export N_PREFIX=$HOME/.local/share
@@ -104,31 +115,11 @@
     mkdir -p $PNPM_HOME
   fi
 
+
 # Bun Setup
 # =================
   export BUN_HOME="$HOME/.bun"
   export PATH="$BUN_HOME/bin:$PATH"
   # install
-  [ ! -x "$(command -v bun)" ] && \
-    curl -fsSL https://bun.sh/install | bash
-
-
-# Python Setup
-# ===================
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  if [ -x "$(command -v pyenv)" ]; then
-    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-    eval "$(pyenv init --path)"
- 
-    # pyenv virtualenv
-    VIRTUALENV_PLUGIN=$(pyenv root)/plugins/pyenv-virtualenv
-    [ ! -e $VIRTUALENV_PLUGIN ] && \
-      git clone https://github.com/pyenv/pyenv-virtualenv.git \
-      $VIRTUALENV_PLUGIN
-    eval "$(pyenv virtualenv-init -)"
-  fi
-
-[ -e /opt/homebrew/bin/brew ] && \
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  [ ! -x "$(command -v bun)" ] && env +bun
 

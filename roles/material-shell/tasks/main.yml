@@ -1,31 +1,19 @@
 ---
-- name: Install Gnome PopOS! shell
+- name: Install Gnome Material Shell
   become: true
   ansible.builtin.package:
     name:
       - gnome-desktop
       - gnome-tweaks
-      # pop-os tiling
-      - gnome-shell-extension-pop-shell
-      - pop-shell-shortcuts
-      # pop-os theme
-      - pop-gtk-theme
-      - gtk-engine-murrine
-      - gtk-engines
-      - pop-gnome-shell-theme
-      - pop-icon-theme
-      - pop-sound-theme
-      - ttf-fira-sans
-      - ttf-fira-mono
-      - ttf-roboto-slab
     state: present
 
-- name: Remap PopOS! laucher
+- name: Enable Gnome Extensions
   ansible.builtin.shell: |
-    gsettings set "{{ item.schema }}" "{{ item.command }}" "{{ item.shortcut }}"
-  with_items: "{{ shortcuts }}"
+    gnome-extensions enable "{{ item }}"
+  with_items:
+    - material-shell@papyelgringo
 
-- name: Create custom shortcuts
+- name: Create Terminal shortcut
   ansible.builtin.shell: |
     gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
     gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Terminal'

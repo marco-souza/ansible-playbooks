@@ -1,0 +1,12 @@
+---
+- name: Install Hyprland desktop
+  become: true
+  ansible.builtin.package:
+    name:
+      # hyprland
+      - wofi
+      - waybar
+      - hyprland
+      - hyprpaper
+      - alacritty
+    state: present

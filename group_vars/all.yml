@@ -1,4 +1,3 @@
----
 # system vars
 is_manjaro: "{{ ansible_facts['distribution'] == 'Archlinux' }}"
 is_osx: "{{ ansible_facts['distribution'] == 'MacOSX' }}"
@@ -12,6 +11,7 @@ dotfiles_packages:
   - git
   - config
   - scripts
+  - hyprland
 nvim_repos:
   - repo: git@github.com:NvChad/NvChad.git
     dest: $HOME/.config/nvim
@@ -33,7 +33,7 @@ aur_packages:
   - 1password-cli
   - pop-wallpapers-git
   - telegram-desktop-bin
-  - tailscale-systray-git
+  # - tailscale-systray-git
   - visual-studio-code-insiders-bin
   - steam-native-runtime
 
