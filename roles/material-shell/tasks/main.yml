@@ -10,7 +10,7 @@
 - name: Clone material-shell
   ansible.builtin.git:
     repo: git@github.com:material-shell/material-shell.git
-    dest: /tmp/material-shell
+    dest: $HOME/.cache/material-shell
     clone: true
     force: true
     update: true
