@@ -17,7 +17,9 @@
     accept_newhostkey: true
 
 - name: Build & install Gnome Material Shell
-  ansible.builtin.shell: cd /tmp/material-shell && make install 2>/dev/null
+  ansible.builtin.shell: |
+    cd $HOME/.cache/material-shell
+    make install 2>/dev/null
 
 - name: Enable Gnome Extensions
   ansible.builtin.shell: |
