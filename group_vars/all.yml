@@ -31,11 +31,12 @@ aur_packages:
   - brave-bin
   - 1password
   - 1password-cli
-  - pop-wallpapers-git
+  # - pop-wallpapers-git
+  - steam-native-runtime
   - telegram-desktop-bin
   # - tailscale-systray-git
   - visual-studio-code-insiders-bin
-  - steam-native-runtime
+  - gnome-shell-extension-material-shell-git
 
 cask_packages:
   - steam
@@ -89,4 +90,4 @@ npm_packages:
   - remark-language-server
   - "@prisma/language-server"
   - "@ansible/ansible-language-server"
-  - "@withgraphite/graphite-cli"
+  - "@withgraphite/graphite-cli@stable"
