@@ -1,11 +1,23 @@
 ---
-- name: Install Gnome Material Shell
+- name: Install Gnome Shell
   become: true
   ansible.builtin.package:
     name:
       - gnome-desktop
       - gnome-tweaks
     state: present
+
+- name: Clone material-shell
+  ansible.builtin.git:
+    repo: git@github.com:material-shell/material-shell.git
+    dest: /tmp/material-shell
+    clone: true
+    force: true
+    update: true
+    accept_newhostkey: true
+
+- name: Build & install Gnome Material Shell
+  ansible.builtin.shell: cd /tmp/material-shell && make install 2>/dev/null
 
 - name: Enable Gnome Extensions
   ansible.builtin.shell: |

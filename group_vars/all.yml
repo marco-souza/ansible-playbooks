@@ -31,12 +31,10 @@ aur_packages:
   - brave-bin
   - 1password
   - 1password-cli
-  # - pop-wallpapers-git
+  - pop-wallpapers-git
   - steam-native-runtime
   - telegram-desktop-bin
-  # - tailscale-systray-git
   - visual-studio-code-insiders-bin
-  - gnome-shell-extension-material-shell-git
 
 cask_packages:
   - steam
