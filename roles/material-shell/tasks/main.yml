@@ -21,12 +21,6 @@
     cd $HOME/.cache/material-shell
     make install 2>/dev/null
 
-- name: Enable Gnome Extensions
-  ansible.builtin.shell: |
-    gnome-extensions enable "{{ item }}"
-  with_items:
-    - material-shell@papyelgringo
-
 - name: Create Terminal shortcut
   ansible.builtin.shell: |
     gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
