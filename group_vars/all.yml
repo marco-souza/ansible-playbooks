@@ -31,6 +31,7 @@ aur_packages:
   - brave-bin
   - 1password
   - 1password-cli
+  - obsidian-cli
   - pop-wallpapers-git
   - steam-native-runtime
   - telegram-desktop-bin
