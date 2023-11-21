@@ -179,12 +179,12 @@ fi
     # zsh
     $ZSH/oh-my-zsh.sh
     $HOME/.p10k.zsh
-    # completions
-    $HOME/.bun/_bun
     # aliases
     $HOME/.aliases
     # scripts
     $HOME/.local/bin/utils
+    # bun completions
+    $HOME/.bun/_bun
   )
 
   # apply files
@@ -197,6 +197,7 @@ fi
 # =================
   completions_commands=(
     'gt completion'
+    'deno completions zsh'
   )
 
   # apply files
