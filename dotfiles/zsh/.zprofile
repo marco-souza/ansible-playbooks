@@ -67,6 +67,7 @@
 
   # install rust-analyzer
   [ ! -f $RUST_BIN/rust-analyzer ] && 
+    rustup component add rust-src && \
     rustup component add rust-analyzer && \
     ln -s $(rustup which --toolchain stable rust-analyzer) $RUST_BIN
 
