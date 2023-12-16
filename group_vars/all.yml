@@ -10,6 +10,7 @@ dotfiles_packages:
   - zsh
   - git
   - config
+  - helix
   - scripts
   - hyprland
 nvim_repos:
@@ -90,3 +91,6 @@ npm_packages:
   - "@prisma/language-server"
   - "@ansible/ansible-language-server"
   - "@withgraphite/graphite-cli@stable"
+
+# k3s configs
+k3s_token: "my-super-secrect-k3s-token-420-69"

@@ -109,7 +109,6 @@ fi
 
 # Text Editors
 ################
-    alias hx=helix
     alias vim=nvim
     alias ev="nvim"
     alias ec="code-insiders"

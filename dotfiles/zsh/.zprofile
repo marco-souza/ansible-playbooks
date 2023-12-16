@@ -66,12 +66,15 @@
     rustup default stable
 
   # install rust-analyzer
-  [ ! -f $RUST_BIN/rust-analyzer ] && 
+  [ ! -f $RUST_BIN/rust-analyzer ] &&
     rustup component add rust-src && \
     rustup component add rust-analyzer && \
     ln -s $(rustup which --toolchain stable rust-analyzer) $RUST_BIN
 
   [ -e $RUST_HOME/env ] && source "$RUST_HOME/env"
+
+  # install helix
+  [ ! -f $RUST_BIN/hx ] && cargo install hx
 
 
 # Deno Setup
