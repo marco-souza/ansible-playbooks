@@ -1,4 +1,12 @@
-theme = "tokyonight_storm"
+theme = "monokai_pro_octagon"
+
+[editor]
+line-number = "relative"
+mouse = false
+bufferline = "multiple"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
 
 [editor.cursor-shape]
 insert = "bar"
