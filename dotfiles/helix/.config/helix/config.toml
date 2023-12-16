@@ -1,4 +1,11 @@
-theme = "tokyonight"
+# Good themes:
+#
+# boogster ayu_mirage boo_berry dark_plus
+# everblush ferra fleet_dark github_dark
+# github_dark_dimmed jellybeans kanagawa
+# kaolin-valley-dark material_deep_ocean
+# molokai nightfox nord-light snazzy sonokai
+theme = "material_deep_ocean"
 
 [editor]
 line-number = "relative"
