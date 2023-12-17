@@ -13,11 +13,17 @@ dotfiles_packages:
   - helix
   - scripts
   - hyprland
+nvim_config:
+  src: $HOME/.config/nvchad.nvim
+  dest: $HOME/.config/nvim
+  state: link
 nvim_repos:
   - repo: git@github.com:NvChad/NvChad.git
-    dest: $HOME/.config/nvim
+    dest: $HOME/.config/nvchad.nvim
   - repo: git@github.com:marco-souza/nvchad.git
-    dest: $HOME/.config/nvim/lua/custom
+    dest: $HOME/.config/nvchad.nvim/lua/custom
+  - repo: git@github.com:marco-souza/scratch.nvim.git
+    dest: $HOME/.config/scratch.nvim
 credentials:
   - src: ../dotfiles/ssh/id_rsa
     dest: $HOME/.ssh/id_rsa

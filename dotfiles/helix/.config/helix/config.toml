@@ -5,7 +5,7 @@
 # github_dark_dimmed jellybeans kanagawa
 # kaolin-valley-dark material_deep_ocean
 # molokai nightfox nord-light snazzy sonokai
-theme = "material_deep_ocean"
+theme = "onedarker"
 
 [editor]
 line-number = "relative"
@@ -23,3 +23,4 @@ hidden = false
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+C-f = [":new", ":insert-output lf-pick", ":theme default", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!", ":theme onedarker"]

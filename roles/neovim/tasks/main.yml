@@ -17,3 +17,6 @@
     update: true
     accept_newhostkey: true
   with_items: "{{ nvim_repos }}"
+
+- name: Create a symbolic to default
+  ansible.builtin.file: "{{ nvim_config }}"
