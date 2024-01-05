@@ -120,3 +120,11 @@ fi
     alias tt="tmux a"
     alias ta="tmux attach-session -t"
     alias tl="tmux list-session"
+    alias tnw="tmux new-window"
+    alias tns="tmux new-session"
+
+
+# Custom
+################
+    alias notes="tnw -c ~/workspace/marco-souza/notes/personal.norg"
+    alias nable="tnw -c ~/workspace/marco-souza/notes/able.norg"
