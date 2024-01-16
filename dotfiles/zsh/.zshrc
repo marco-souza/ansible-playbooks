@@ -205,6 +205,13 @@ fi
     eval $(eval $comp)
   done
 
+# install tmux plugins
+  export TPM=$HOME/.tmux/plugins/tpm
+  if [ ! -e $TPM ]; then
+    git clone https://github.com/tmux-plugins/tpm $TPM
+    install=$TPM/bin/install_plugins 
+    [ -f $install ] && sh $install
+  fi
 
 # clean up logs
 clear
