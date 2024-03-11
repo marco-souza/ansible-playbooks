@@ -215,3 +215,6 @@ fi
 
 # clean up logs
 clear
+
+# Turso
+export PATH="/home/marco/.turso:$PATH"

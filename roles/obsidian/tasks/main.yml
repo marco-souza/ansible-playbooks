@@ -1,0 +1,10 @@
+---
+- name: Setup vaults
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    clone: true
+    force: true
+    update: true
+    accept_newhostkey: true
+  with_items: "{{ obsidian_repos }}"

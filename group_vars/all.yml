@@ -17,6 +17,9 @@ nvim_config:
   src: $HOME/.config/nvchad.nvim
   dest: $HOME/.config/nvim
   state: link
+obsidian_repos:
+  - repo: git@github.com:marco-souza/notes.git
+    dest: $HOME/workspace/marco-souza/notes
 nvim_repos:
   - repo: git@github.com:NvChad/NvChad.git
     dest: $HOME/.config/nvchad.nvim
@@ -38,7 +41,7 @@ aur_packages:
   - brave-bin
   - 1password
   - 1password-cli
-  - obsidian-cli
+  - obsidian-bin
   - pop-wallpapers-git
   - steam-native-runtime
   - telegram-desktop-bin
@@ -50,6 +53,7 @@ cask_packages:
   - discord
   - amethyst
   - notion
+  - obsidian
   - 1password
   - 1password-cli
   - brave-browser

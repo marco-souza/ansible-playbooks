@@ -4,6 +4,7 @@
   roles:
     - install_packages
     - dotfiles
+    - obsidian
     - neovim
     - docker
     - node
