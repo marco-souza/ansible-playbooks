@@ -14,6 +14,10 @@ osx: deps
 	ansible-playbook playbooks/osx.yml -i localhost --ask-become-pass
 	echo "Setup done! Please restart your Mac OS"
 
+nvim: deps
+	ansible-playbook playbooks/neovim.yml -i localhost
+	echo "Your neovim is good to go!"
+
 decrypt:
 	ansible-vault decrypt dotfiles/ssh/id_rsa dotfiles/ssh/id_rsa.pub dotfiles/wakatime/.wakatime.cfg
 

@@ -8,15 +8,15 @@
       - ripgrep
     state: present
 
-- name: Setup neovim
+- name: Setup Personal Neovim config
   ansible.builtin.git:
-    repo: "{{ item.repo }}"
-    dest: "{{ item.dest }}"
+    repo: git@github.com:marco-souza/nvim.git
+    dest: $HOME/.config/nvim
     clone: true
     force: true
     update: true
     accept_newhostkey: true
-  with_items: "{{ nvim_repos }}"
 
-- name: Create a symbolic to default
-  ansible.builtin.file: "{{ nvim_config }}"
+- name: Initialize Neovim
+  ansible.builtin.shell: nvim --headless +"Lazy! sync" +qa
+

@@ -1,0 +1,5 @@
+---
+- name: Setup Neovim
+  hosts: localhost
+  roles:
+    - neovim

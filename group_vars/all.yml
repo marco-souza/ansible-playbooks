@@ -13,20 +13,9 @@ dotfiles_packages:
   - helix
   - scripts
   - hyprland
-nvim_config:
-  src: $HOME/.config/nvchad.nvim
-  dest: $HOME/.config/nvim
-  state: link
 obsidian_repos:
   - repo: git@github.com:marco-souza/notes.git
     dest: $HOME/workspace/marco-souza/notes
-nvim_repos:
-  - repo: git@github.com:NvChad/NvChad.git
-    dest: $HOME/.config/nvchad.nvim
-  - repo: git@github.com:marco-souza/nvchad.git
-    dest: $HOME/.config/nvchad.nvim/lua/custom
-  - repo: git@github.com:marco-souza/scratch.nvim.git
-    dest: $HOME/.config/scratch.nvim
 credentials:
   - src: ../dotfiles/ssh/id_rsa
     dest: $HOME/.ssh/id_rsa

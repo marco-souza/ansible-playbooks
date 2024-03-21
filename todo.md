@@ -1,7 +1,13 @@
+- [ ] simplify profile setup
+    - [ ] setup dev packages
+    - [ ] clean up zprofile, zshrc
+- [x] nvim setup
+    - [x] move it here to dotfiles
+    - [x] install nvchad
+    - [x] merge my scrach changes
 - [x] make pop-os installer
 - [x] encrypt credentials using ansible-vaults
 - [x] setup .dotfiles
-- [ ] setup distrobox ??
 - [x] install nerd-fonts
 - [x] install go and rust using ansible
 - [x] install deno packages
