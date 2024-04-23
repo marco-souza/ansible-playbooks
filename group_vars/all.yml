@@ -46,6 +46,7 @@ cask_packages:
   - 1password
   - 1password-cli
   - brave-browser
+  - google-chrome
   - visual-studio-code-insiders
 
 base_packages:
@@ -67,6 +68,7 @@ dev_packages:
   - deno
   - helix
   - nodejs
+  # TODO: all the packages above are installed via .devrc
   - tailscale
   - ollama
   - wakatime{{ '' if is_manjaro else '-cli' }}
@@ -90,6 +92,3 @@ npm_packages:
   - "@prisma/language-server"
   - "@ansible/ansible-language-server"
   - "@withgraphite/graphite-cli@stable"
-
-# k3s configs
-k3s_token: "my-super-secrect-k3s-token-420-69"
