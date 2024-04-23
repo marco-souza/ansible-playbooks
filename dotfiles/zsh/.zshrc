@@ -209,7 +209,7 @@ fi
   export TPM=$HOME/.tmux/plugins/tpm
   if [ ! -e $TPM ]; then
     git clone https://github.com/tmux-plugins/tpm $TPM
-    install=$TPM/bin/install_plugins 
+    install=$TPM/bin/install_plugins
     [ -f $install ] && sh $install
   fi
 
