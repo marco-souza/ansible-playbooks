@@ -15,7 +15,7 @@ dotfiles_packages:
   - hyprland
 obsidian_repos:
   - repo: git@github.com:marco-souza/notes.git
-    dest: $HOME/workspace/marco-souza/notes
+    dest: $HOME/w/marco-souza/notes
 credentials:
   - src: ../dotfiles/ssh/id_rsa
     dest: $HOME/.ssh/id_rsa
