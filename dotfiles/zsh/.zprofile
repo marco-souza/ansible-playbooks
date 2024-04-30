@@ -99,9 +99,11 @@
 # Source
 # =================
   # homebrew
+    export BREW_BIN="/opt/homebrew/bin/"
+    export PATH=$PATH:$BREW_BIN
     [ ! -x "$(command -v brew)" ] && \
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$(brew shellenv)"
 
 
   # pkgx.sh
