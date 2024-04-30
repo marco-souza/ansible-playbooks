@@ -96,14 +96,17 @@
   export PATH="$BUN_HOME/bin:$PATH"
 
 
-# setup pkgx.sh
-  [ ! -x "$(command -v pkgx)" ] && \
-    curl -fsS https://pkgx.sh | sh
-  source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
-  # add packages
-  env +deno +rust +node +npm
+# Source
+# =================
+  # homebrew
+    [ ! -x "$(command -v brew)" ] && \
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# setup homebrew
-  [ ! -x "$(command -v brew)" ] && \
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # pkgx.sh
+    [ ! -x "$(command -v pkgx)" ] && \
+      curl -fsS https://pkgx.sh | sh
+    source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
+    # add packages
+    env +deno +rust +node +npm
