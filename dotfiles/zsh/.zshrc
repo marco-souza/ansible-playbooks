@@ -116,7 +116,7 @@ fi
   export ZSH=$HOME/.oh-my-zsh
   export ZSH_CUSTOM=$ZSH/custom
   if [ ! -e $ZSH ]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH
+    git clone https://github.com/ohmyzsh/ohmyzsh.git $ZSH
   fi
 
   # Setup power level 10k theme
@@ -196,7 +196,6 @@ fi
 # Load completions
 # =================
   completions_commands=(
-    'gt completion'
     'deno completions zsh'
   )
 
@@ -213,8 +212,3 @@ fi
     [ -f $install ] && sh $install
   fi
 
-# clean up logs
-clear
-
-# Turso
-export PATH="/home/marco/.turso:$PATH"

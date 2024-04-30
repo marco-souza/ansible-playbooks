@@ -15,7 +15,7 @@ dotfiles_packages:
   - hyprland
 obsidian_repos:
   - repo: git@github.com:marco-souza/notes.git
-    dest: $HOME/workspace/marco-souza/notes
+    dest: $HOME/w/marco-souza/notes
 credentials:
   - src: ../dotfiles/ssh/id_rsa
     dest: $HOME/.ssh/id_rsa
@@ -26,28 +26,30 @@ credentials:
 
 # package vars
 aur_packages:
+  - ollama
   - discord
+  - wakatime
   - brave-bin
+  - tailscale
   - 1password
-  - 1password-cli
   - obsidian-bin
+  - google-chrome
   - pop-wallpapers-git
   - steam-native-runtime
   - telegram-desktop-bin
-  - visual-studio-code-insiders-bin
 
 cask_packages:
   - steam
-  - iterm2
+  - ollama
   - discord
   - amethyst
-  - notion
+  - wakatime
   - obsidian
+  - telegram
   - 1password
-  - 1password-cli
+  - tailscale
   - brave-browser
   - google-chrome
-  - visual-studio-code-insiders
 
 base_packages:
   - zsh
@@ -61,34 +63,11 @@ base_packages:
   - make
   - htop
 
-dev_packages:
-  - go
-  - npm
-  - rust
-  - deno
-  - helix
-  - nodejs
-  # TODO: all the packages above are installed via .devrc
-  - tailscale
-  - ollama
-  - wakatime{{ '' if is_manjaro else '-cli' }}
-
 # node vars
 node_home: $HOME/.npm-global
 npm_packages:
+  - tsx
   - yarn
   - pnpm
-  - tsx
-  - vercel
-  - remark
-  - emmet-ls
   - typescript
   - "@nestjs/cli"
-  # LSP
-  - vscode-langservers-extracted
-  - typescript-language-server
-  - tailwindcss-language-server
-  - remark-language-server
-  - "@prisma/language-server"
-  - "@ansible/ansible-language-server"
-  - "@withgraphite/graphite-cli@stable"

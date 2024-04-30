@@ -1,6 +1,6 @@
 #! /bin/sh
 session=ansible
-workspace=$HOME/workspace/marco-souza/ansible-playbooks
+workspace=$HOME/w/marco-souza/ansible-playbooks
 
 # kill session
 if [ "$1" = "k" ]; then

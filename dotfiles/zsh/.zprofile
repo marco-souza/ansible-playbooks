@@ -18,7 +18,7 @@
 
 # System Setup
 # ===================
-  ## Settup env language: https://wiki.archlinux.org/index.php/Locale
+  ## Setup env language: https://wiki.archlinux.org/index.php/Locale
   # export LANG=en_US.UTF-8
   # export LC_ALL=en_US.UTF-8
   # export LANGUAGE=en_US.UTF-8
@@ -34,4 +34,83 @@
   # export LC_NUMERIC=en_US.UTF-8
   # export LANG=en_US.UTF-8
 
-source ~/.devrc
+# Go Setup
+# ===============
+  # export GOROOT=/usr/lib/go
+  export GOPATH=$HOME/.local/share/go/
+  export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/darwin_arm64/
+  [ ! -e $GOPATH ] && mkdir -p $GOPATH
+
+
+# Rust Setup
+# =================
+  export RUST_HOME="$HOME/.cargo"
+  export RUST_BIN="$RUST_HOME/bin"
+  export PATH=$PATH:$RUST_BIN
+
+  # install rust
+  [ ! -e $RUST_HOME ] && mkdir -p $RUST_HOME
+  [ ! -e $RUST_BIN ] && mkdir -p $RUST_BIN
+  [ -e $RUST_HOME/env ] && source $RUST_HOME/env
+
+
+# Deno Setup
+# =================
+  export DENO_HOME="$HOME/.deno"
+  export PATH=$PATH:$DENO_HOME/bin
+  [ ! -e $DENO_HOME ] && mkdir -p $DENO_HOME
+
+
+# Node Setup
+# =================
+  ## npm
+  export NPM_HOME=$HOME/.npm-global
+  export PATH=$PATH:$NPM_HOME/bin
+  # install
+  [ ! -e $NPM_HOME ] && mkdir -p $NPM_HOME
+
+  ## n
+  export N_PREFIX=$HOME/.local/share
+  export N_HOME=$N_PREFIX/n
+  export PATH=$PATH:$N_PREFIX/bin
+  [ ! -e $N_HOME ] && mkdir -p $N_HOME
+
+  ## yarn
+  export YARN_HOME=$HOME/.config/yarn
+  export PATH=$PATH:$YARN_HOME/global/node_modules/.bin
+  if [ ! -e $YARN_HOME ]; then
+    mkdir -p $YARN_HOME
+  fi
+
+  ## pnpm
+  export PNPM_HOME=$HOME/.local/share/pnpm
+  export PATH=$PATH:$PNPM_HOME
+  if [ ! -e $PNPM_HOME ]; then
+    mkdir -p $PNPM_HOME
+  fi
+
+
+# Bun Setup
+# =================
+  export BUN_HOME="$HOME/.bun"
+  export PATH="$BUN_HOME/bin:$PATH"
+
+
+# Source
+# =================
+  # homebrew
+    export BREW_BIN="/opt/homebrew/bin/"
+    export PATH=$PATH:$BREW_BIN
+    [ ! -x "$(command -v brew)" ] && \
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(brew shellenv)"
+
+
+  # pkgx.sh
+    [ ! -x "$(command -v pkgx)" ] && \
+      curl -fsS https://pkgx.sh | sh
+    source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
+    # add packages
+    env +deno +rust +node +npm +neofetch
+
+neofetch

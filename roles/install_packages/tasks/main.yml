@@ -5,12 +5,6 @@
     state: present
     name: "{{ base_packages }}"
 
-- name: (shared) Install dev packages
-  become: "{{ become_root }}"
-  ansible.builtin.package:
-    state: present
-    name: "{{ dev_packages }}"
-
 - name: (manjaro) Install AUR packages
   when: is_manjaro
   kewlfft.aur.aur:
