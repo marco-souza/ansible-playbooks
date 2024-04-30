@@ -185,6 +185,7 @@ fi
     $HOME/.local/bin/utils
     # bun completions
     $HOME/.bun/_bun
+    $HOME/.devrc
   )
 
   # apply files
@@ -196,7 +197,6 @@ fi
 # Load completions
 # =================
   completions_commands=(
-    'gt completion'
     'deno completions zsh'
   )
 
@@ -213,5 +213,3 @@ fi
     [ -f $install ] && sh $install
   fi
 
-  echo setting up tools...
-  source ./.toolsrc
