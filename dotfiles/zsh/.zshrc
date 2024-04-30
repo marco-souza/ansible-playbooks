@@ -173,11 +173,6 @@ fi
       zsh-autosuggestions
     )
 
-# setup pkgx.sh
-  [ ! -x "$(command -v pkgx)" ] && curl -fsS https://pkgx.sh | sh
-  source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
-  env +deno
-
 # Load files
 # =================
   file_paths=(
