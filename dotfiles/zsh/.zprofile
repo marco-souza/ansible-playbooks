@@ -18,7 +18,7 @@
 
 # System Setup
 # ===================
-  ## Settup env language: https://wiki.archlinux.org/index.php/Locale
+  ## Setup env language: https://wiki.archlinux.org/index.php/Locale
   # export LANG=en_US.UTF-8
   # export LC_ALL=en_US.UTF-8
   # export LANGUAGE=en_US.UTF-8

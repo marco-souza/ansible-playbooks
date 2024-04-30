@@ -213,8 +213,5 @@ fi
     [ -f $install ] && sh $install
   fi
 
-# clean up logs
-clear
-
-# Turso
-export PATH="/home/marco/.turso:$PATH"
+  echo setting up tools...
+  source ./.toolsrc
