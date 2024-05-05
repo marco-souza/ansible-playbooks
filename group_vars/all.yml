@@ -5,6 +5,8 @@ become_root: "{{ 'yes' if is_manjaro else 'no' }}"
 
 # data vars
 data_dir: /data/
+
+# dotfiles onfigs
 dotfiles_dir: $PWD/../dotfiles
 dotfiles_packages:
   - zsh
@@ -13,9 +15,11 @@ dotfiles_packages:
   - helix
   - scripts
   - hyprland
+
 obsidian_repos:
   - repo: git@github.com:marco-souza/notes.git
     dest: $HOME/w/marco-souza/notes
+
 credentials:
   - src: ../dotfiles/ssh/id_rsa
     dest: $HOME/.ssh/id_rsa
@@ -39,6 +43,7 @@ aur_packages:
   - telegram-desktop-bin
 
 cask_packages:
+  - arc
   - steam
   - ollama
   - discord
@@ -55,6 +60,7 @@ base_packages:
   - zsh
   - git
   - vim
+  - gpg
   - tree
   - stow
   - tmux
