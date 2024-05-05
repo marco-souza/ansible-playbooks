@@ -1,4 +1,12 @@
 ---
+- name: Install Node.js 
+  become: "{{ is_manjaro }}"
+  ansible.builtin.package:
+    state: present
+    name:
+      - node
+      - npm
+
 - name: Create global NPM_HOME
   ansible.builtin.file:
     path: "{{ node_home }}"
