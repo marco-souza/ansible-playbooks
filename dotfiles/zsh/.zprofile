@@ -99,7 +99,12 @@
 # Source
 # =================
   # homebrew
-    export BREW_BIN="/opt/homebrew/bin/"
+    BREW_HOME="/opt/homenew"
+    if [[ $(uname -s) = "mac" ]]; then
+      BREW_HOME="/home/linuxbrew/.linuxbrew"
+    fi
+
+    export BREW_BIN="$BREW_HOME/bin/"
     export PATH=$PATH:$BREW_BIN
     [ ! -x "$(command -v brew)" ] && \
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
