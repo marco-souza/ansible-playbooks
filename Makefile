@@ -15,7 +15,7 @@ osx: deps
 	echo "Setup done! Please restart your Mac OS"
 
 nvim: deps
-	ansible-playbook playbooks/neovim.yml -i localhost
+	ansible-playbook playbooks/neovim.yml -i localhost --ask-become-pass
 	echo "Your neovim is good to go!"
 
 decrypt:
