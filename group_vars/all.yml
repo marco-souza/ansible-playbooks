@@ -60,7 +60,6 @@ base_packages:
   - zsh
   - git
   - vim
-  - gpg
   - tree
   - stow
   - tmux
@@ -68,6 +67,7 @@ base_packages:
   - curl
   - make
   - htop
+  - gnupg
 
 # node vars
 node_home: $HOME/.npm-global
