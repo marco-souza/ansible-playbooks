@@ -4,7 +4,7 @@
   ansible.builtin.package:
     state: present
     name:
-      - node
+      - nodejs
       - npm
 
 - name: Create global NPM_HOME
