@@ -99,9 +99,9 @@
 # Source
 # =================
   # homebrew
-    BREW_HOME="/opt/homenew"
-    if [[ $(uname -s) = "mac" ]]; then
-      BREW_HOME="/home/linuxbrew/.linuxbrew"
+    export BREW_HOME="/opt/homenew"
+    if [[ $(uname -s) = "Linux" ]]; then
+      export BREW_HOME="/home/linuxbrew/.linuxbrew"
     fi
 
     export BREW_BIN="$BREW_HOME/bin/"
