@@ -112,8 +112,7 @@
 
 
   # pkgx.sh
-    [ ! -x "$(command -v pkgx)" ] && \
-      curl -fsS https://pkgx.sh | sh
+    [ ! -x "$(command -v pkgx)" ] && curl -fsS https://pkgx.sh | sh
     source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
     # add packages
     env +deno +rust +node +npm +neofetch
