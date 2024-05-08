@@ -99,7 +99,7 @@
 # Source
 # =================
   # homebrew
-    export BREW_HOME="/opt/homenew"
+    export BREW_HOME="/opt/homebrew"
     if [[ $(uname -s) = "Linux" ]]; then
       export BREW_HOME="/home/linuxbrew/.linuxbrew"
     fi
