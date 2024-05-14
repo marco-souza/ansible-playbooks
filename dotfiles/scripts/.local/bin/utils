@@ -24,6 +24,12 @@ tvol() {
     vol $VOLUME
 }
 
-# Distrobox 
+# Distrobox
 ax() { distrobox-export -a $1; }
 bx() { distrobox-export -b $(which $1) -ep $HOME/.local/bin/; }
+
+# Workon (tmux)
+workon() {
+  mkdir $1;
+  tmux neww -c $1
+}
