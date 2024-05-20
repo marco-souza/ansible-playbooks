@@ -30,6 +30,11 @@ bx() { distrobox-export -b $(which $1) -ep $HOME/.local/bin/; }
 
 # Workon (tmux)
 workon() {
-  mkdir $1;
+  [ ! -d $1 ] && mkdir $1;
+
+  if [ -e $1/.env.sh ]; then
+    tmux neww -c $1 "source $1/.env.sh; zsh"
+  fi
+
   tmux neww -c $1
 }
