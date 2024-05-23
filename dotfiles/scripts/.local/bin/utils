@@ -38,3 +38,7 @@ workon() {
 
   tmux neww -c $1
 }
+
+# Git
+gmu() { gco $1 && gl && gco - && gm $1  }
+gru() { gco $1 && gl && gco - && grb $1  }
