@@ -90,12 +90,6 @@
   fi
 
 
-# Bun Setup
-# =================
-  export BUN_HOME="$HOME/.bun"
-  export PATH="$BUN_HOME/bin:$PATH"
-
-
 # Source
 # =================
   # homebrew
@@ -116,5 +110,14 @@
     source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
     # add packages
     env +deno +rust +node +npm +neofetch
+
+  # nvim version manager
+    export BOB_HOME="$HOME/.local/share/bob/nvim-bin"
+    export PATH=$PATH:$BOB_HOME
+    [ ! -x "$(command -v bob)" ] && \
+      cargo install bob-nvim && \
+      bob install 0.10.0 && \
+      bob use 0.10.0
+
 
 neofetch
