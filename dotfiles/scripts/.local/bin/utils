@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /usr/bin/env zsh
 
 mcd() { mkdir $1; cd $1; }
 
@@ -40,5 +40,10 @@ workon() {
 }
 
 # Git
-gmu() { gco $1 && gl && gco - && gm $1  }
-gru() { gco $1 && gl && gco - && grb $1  }
+gmu() {
+  gco $1 && gl && gco - && gm $1
+}
+
+gru() {
+  gco $1 && gl && gco - && grb $1
+}
