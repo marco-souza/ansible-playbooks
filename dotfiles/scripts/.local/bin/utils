@@ -40,6 +40,6 @@ workon() {
 }
 
 # Git
-mug() { gco $1 && gl && gco - && gm $1 }
+mug() { gl && gco $1 && gl && gco - && gm $1 }
 
-rug() { gco $1 && gl && gco - && grb $1 }
+rug() { gl && gco $1 && gl && gco - && grb $1 }
