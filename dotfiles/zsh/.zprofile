@@ -63,6 +63,12 @@
 
 # Node Setup
 # =================
+  ## volta
+  export VOLTA_HOME="$HOME/.volta"
+  export PATH="$VOLTA_HOME/bin:$PATH"
+  # install
+  [ ! -e $VOLTA_HOME ] && mkdir -p $VOLTA_HOME
+
   ## npm
   export NPM_HOME=$HOME/.npm-global
   export PATH=$PATH:$NPM_HOME/bin
@@ -109,7 +115,8 @@
     [ ! -x "$(command -v pkgx)" ] && curl -fsS https://pkgx.sh | sh
     source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
     # add packages
-    env +deno +rust +node +npm +neofetch
+    env +deno +rust +neofetch +volta
+    volta install node npm pnpm yarn
 
   # nvim version manager
     export BOB_HOME="$HOME/.local/share/bob/nvim-bin"
