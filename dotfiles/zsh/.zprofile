@@ -114,8 +114,15 @@
   # pkgx.sh
     [ ! -x "$(command -v pkgx)" ] && curl -fsS https://pkgx.sh | sh
     source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
+
     # add packages
     env +deno +rust +neofetch +volta
+
+
+  # volta
+    [ ! -x "$(command -v volta)" ] && curl https://get.volta.sh | bash
+
+    # add packages
     volta install node npm pnpm yarn
 
   # nvim version manager
