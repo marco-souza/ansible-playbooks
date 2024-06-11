@@ -6,7 +6,6 @@
     - install_packages
     - dotfiles
     - hyprland
-    - material-shell
     - obsidian
     - neovim
     - docker

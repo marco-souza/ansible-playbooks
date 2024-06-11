@@ -6,6 +6,5 @@
       # fonts
       - ttf-fira-sans
       - ttf-fira-mono
-      - ttf-roboto-slab
       - ttf-font-awesome
     state: present
