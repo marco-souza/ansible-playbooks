@@ -123,7 +123,9 @@
     [ ! -x "$(command -v volta)" ] && curl https://get.volta.sh | bash
 
     # add packages
-    volta install node npm pnpm yarn
+    [ ! -x "$(command -v node)" ] && volta install node npm
+    [ ! -x "$(command -v pnpm)" ] && volta install pnpm
+    [ ! -x "$(command -v yarn)" ] && volta install yarn
 
   # nvim version manager
     export BOB_HOME="$HOME/.local/share/bob/nvim-bin"
