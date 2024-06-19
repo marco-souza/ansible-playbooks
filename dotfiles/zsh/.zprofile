@@ -7,6 +7,21 @@
   export SSH_KEY_PATH="~/.ssh/rsa_id"
   export WORKSPACE=$HOME/workspace # user Workspace
 
+  ensure_path() {
+    path=$1
+    cmd=${2:-"make -p $path"}
+
+    [ ! -e $path ] && eval $cmd
+
+    echo $path:$path/bin
+  }
+
+  ensure_installed() {
+    pkg=$1
+    install_cmd=$2
+    [ ! -x "$(command -v $pkg)" ] && eval $install_cmd
+  }
+
   [[ -x firefox ]] && export BROWSER=$(which firefox)
   [[ -x google-chrome-stable ]] && export BROWSER=$(which google-chrome-stable)
   [[ -x brave ]] && export BROWSER=$(which brave)
@@ -39,101 +54,73 @@
   # export GOROOT=/usr/lib/go
   export GOPATH=$HOME/.local/share/go/
   export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/darwin_arm64/
-  [ ! -e $GOPATH ] && mkdir -p $GOPATH
+
+  export PATH=$PATH:$(ensure_path $GOPATH)
+
+  ensure_installed go '
+    if [ -x "$(command -v yay)" ]; then
+      yay -Syu go
+    elif [ -x "$(command -v pamac)" ]; then
+      pamac install go
+    elif [ -x "$(command -v brew)" ]; then
+      pamac install go
+    fi
+  '
 
 
 # Rust Setup
 # =================
   export RUST_HOME="$HOME/.cargo"
   export RUST_BIN="$RUST_HOME/bin"
-  export PATH=$PATH:$RUST_BIN
 
   # install rust
-  [ ! -e $RUST_HOME ] && mkdir -p $RUST_HOME
-  [ ! -e $RUST_BIN ] && mkdir -p $RUST_BIN
-  [ -e $RUST_HOME/env ] && source $RUST_HOME/env
+  export PATH=$PATH:$(ensure_path $RUST_HOME)
+  export PATH=$PATH:$(ensure_path $RUST_HOME/env 'source $RUST_HOME/env')
+
+  ensure_installed cargo "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
 
 # Deno Setup
 # =================
   export DENO_HOME="$HOME/.deno"
-  export PATH=$PATH:$DENO_HOME/bin
-  [ ! -e $DENO_HOME ] && mkdir -p $DENO_HOME
+  export PATH=$PATH:$(ensure_path $DENO_HOME)
+
+  ensure_installed deno 'curl -fsSL https://deno.land/install.sh | sh'
 
 
 # Node Setup
 # =================
   ## volta
-  export VOLTA_HOME="$HOME/.volta"
-  export PATH="$VOLTA_HOME/bin:$PATH"
-  # install
-  [ ! -e $VOLTA_HOME ] && mkdir -p $VOLTA_HOME
+    export VOLTA_HOME="$HOME/.volta"
+    export PATH=$PATH:$(ensure_path $VOLTA_HOME)
+
+    ensure_installed volta 'curl https://get.volta.sh | bash'
 
   ## npm
-  export NPM_HOME=$HOME/.npm-global
-  export PATH=$PATH:$NPM_HOME/bin
-  # install
-  [ ! -e $NPM_HOME ] && mkdir -p $NPM_HOME
+    export NPM_HOME=$HOME/.npm-global
+    export PATH=$PATH:$(ensure_path $NPM_HOME)
 
-  ## n
-  export N_PREFIX=$HOME/.local/share
-  export N_HOME=$N_PREFIX/n
-  export PATH=$PATH:$N_PREFIX/bin
-  [ ! -e $N_HOME ] && mkdir -p $N_HOME
+    ensure_installed node 'volta install node npm'
 
   ## yarn
-  export YARN_HOME=$HOME/.config/yarn
-  export PATH=$PATH:$YARN_HOME/global/node_modules/.bin
-  if [ ! -e $YARN_HOME ]; then
-    mkdir -p $YARN_HOME
-  fi
+    export YARN_HOME=$HOME/.config/yarn
+    export PATH=$PATH:$(ensure_path $YARN_HOME)
+    export PATH=$PATH:$YARN_HOME/global/node_modules/.bin
+
+    ensure_installed yarn 'volta install yarn'
 
   ## pnpm
-  export PNPM_HOME=$HOME/.local/share/pnpm
-  export PATH=$PATH:$PNPM_HOME
-  if [ ! -e $PNPM_HOME ]; then
-    mkdir -p $PNPM_HOME
-  fi
+    export PNPM_HOME=$HOME/.local/share/pnpm
+    export PATH=$PATH:$(ensure_path $PNPM_HOME)
+
+    ensure_installed pnpm 'volta install pnpm'
 
 
-# Source
+# Nvim version manager
 # =================
-  # homebrew
-    export BREW_HOME="/opt/homebrew"
-    if [[ $(uname -s) = "Linux" ]]; then
-      export BREW_HOME="/home/linuxbrew/.linuxbrew"
-    fi
-
-    export BREW_BIN="$BREW_HOME/bin/"
-    export PATH=$PATH:$BREW_BIN
-    [ ! -x "$(command -v brew)" ] && \
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(brew shellenv)"
-
-
-  # pkgx.sh
-    [ ! -x "$(command -v pkgx)" ] && curl -fsS https://pkgx.sh | sh
-    source <(pkgx --shellcode)  # docs.pkgx.sh/shellcode
-
-    # add packages
-    env +deno +rust +neofetch +volta
-
-
-  # volta
-    [ ! -x "$(command -v volta)" ] && curl https://get.volta.sh | bash
-
-    # add packages
-    [ ! -x "$(command -v node)" ] && volta install node npm
-    [ ! -x "$(command -v pnpm)" ] && volta install pnpm
-    [ ! -x "$(command -v yarn)" ] && volta install yarn
-
   # nvim version manager
     export BOB_HOME="$HOME/.local/share/bob/nvim-bin"
     export PATH=$PATH:$BOB_HOME
-    [ ! -x "$(command -v bob)" ] && \
-      cargo install bob-nvim && \
-      bob install 0.10.0 && \
-      bob use 0.10.0
 
+    ensure_installed bob 'cargo install bob-nvim && bob install 0.10.0 && bob use 0.10.0'
 
-neofetch
