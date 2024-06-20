@@ -8,12 +8,9 @@
   export WORKSPACE=$HOME/workspace # user Workspace
 
   ensure_path() {
-    path=$1
-    cmd=${2:-"make -p $path"}
-
-    [ ! -e $path ] && eval $cmd
-
-    echo $path:$path/bin
+    dir_path=$1
+    [ ! -e $dir_path ] && mkdir -p $dir_path
+    export PATH=$PATH:$dir_path:$dir_path/bin
   }
 
   ensure_installed() {
@@ -30,32 +27,14 @@
   export EDITOR="/usr/bin/vim"
   [[ -x nvim ]] && export EDITOR=$(which nvim)
 
-
-# System Setup
-# ===================
-  ## Setup env language: https://wiki.archlinux.org/index.php/Locale
-  # export LANG=en_US.UTF-8
-  # export LC_ALL=en_US.UTF-8
-  # export LANGUAGE=en_US.UTF-8
-  # export LC_ALL=en_US.UTF-8
-  # export LC_ADDRESS=en_US.UTF-8
-  # export LC_NAME=en_US.UTF-8
-  # export LC_MONETARY=en_US.UTF-8
-  # export LC_PAPER=en_US.UTF-8
-  # export LC_IDENTIFICATION=en_US.UTF-8
-  # export LC_TELEPHONE=en_US.UTF-8
-  # export LC_MEASUREMENT=en_US.UTF-8
-  # export LC_TIME=en_US.UTF-8
-  # export LC_NUMERIC=en_US.UTF-8
-  # export LANG=en_US.UTF-8
-
+#
 # Go Setup
 # ===============
   # export GOROOT=/usr/lib/go
   export GOPATH=$HOME/.local/share/go/
   export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/darwin_arm64/
 
-  export PATH=$PATH:$(ensure_path $GOPATH)
+  ensure_path $GOPATH
 
   ensure_installed go '
     if [ -x "$(command -v yay)" ]; then
@@ -71,19 +50,19 @@
 # Rust Setup
 # =================
   export RUST_HOME="$HOME/.cargo"
-  export RUST_BIN="$RUST_HOME/bin"
+
+  ensure_path $RUST_HOME
 
   # install rust
-  export PATH=$PATH:$(ensure_path $RUST_HOME)
-  export PATH=$PATH:$(ensure_path $RUST_HOME/env 'source $RUST_HOME/env')
-
-  ensure_installed cargo "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+  ensure_installed rustup 'source $RUST_HOME/env'
+  ensure_installed rustup "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
 
 # Deno Setup
 # =================
   export DENO_HOME="$HOME/.deno"
-  export PATH=$PATH:$(ensure_path $DENO_HOME)
+
+  ensure_path $DENO_HOME
 
   ensure_installed deno 'curl -fsSL https://deno.land/install.sh | sh'
 
@@ -92,26 +71,30 @@
 # =================
   ## volta
     export VOLTA_HOME="$HOME/.volta"
-    export PATH=$PATH:$(ensure_path $VOLTA_HOME)
+
+    ensure_path $VOLTA_HOME
 
     ensure_installed volta 'curl https://get.volta.sh | bash'
 
   ## npm
     export NPM_HOME=$HOME/.npm-global
-    export PATH=$PATH:$(ensure_path $NPM_HOME)
+
+    ensure_path $NPM_HOME
 
     ensure_installed node 'volta install node npm'
 
   ## yarn
     export YARN_HOME=$HOME/.config/yarn
-    export PATH=$PATH:$(ensure_path $YARN_HOME)
     export PATH=$PATH:$YARN_HOME/global/node_modules/.bin
+
+    ensure_path $YARN_HOME
 
     ensure_installed yarn 'volta install yarn'
 
   ## pnpm
     export PNPM_HOME=$HOME/.local/share/pnpm
-    export PATH=$PATH:$(ensure_path $PNPM_HOME)
+
+    ensure_path $PNPM_HOME
 
     ensure_installed pnpm 'volta install pnpm'
 
