@@ -71,9 +71,4 @@ base_packages:
 
 # node vars
 node_home: $HOME/.npm-global
-npm_packages:
-  - tsx
-  - yarn
-  - pnpm
-  - typescript
-  - "@nestjs/cli"
+npm_packages: [] # TODO: replace with volta or remove
