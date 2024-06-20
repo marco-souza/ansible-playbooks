@@ -2,7 +2,7 @@
 # ======================
   # a If you come from bash you might have to change your $PATH.
   export LOCAL_BIN=$HOME/.local/bin
-  export PATH=$PATH:$LOCAL_BIN:/usr/local/bin
+  export PATH=$PATH:$LOCAL_BIN:/usr/local/bin:/opt/homebrew/bin
   export ARCHFLAGS="-arch x86_64"
   export SSH_KEY_PATH="~/.ssh/rsa_id"
   export WORKSPACE=$HOME/workspace # user Workspace
