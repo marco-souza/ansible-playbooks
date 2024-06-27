@@ -165,6 +165,7 @@ fi
       tmux
       rust
       deno
+      direnv
       docker
       ansible
       kubectl

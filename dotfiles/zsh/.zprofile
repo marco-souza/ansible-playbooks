@@ -107,3 +107,9 @@
 
     ensure_installed bob 'cargo install bob-nvim && bob install 0.10.0 && bob use 0.10.0'
 
+
+# Tools
+# =====
+  # direnv
+    ensure_installed direnv 'curl -sfL https://direnv.net/install.sh | bash'
+
