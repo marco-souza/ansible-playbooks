@@ -165,6 +165,7 @@ fi
       tmux
       rust
       deno
+      helm
       direnv
       docker
       ansible
@@ -194,18 +195,8 @@ fi
   done
 
 
-# Load completions
+# tmux plugin setup
 # =================
-  completions_commands=(
-    'deno completions zsh'
-  )
-
-  # apply files
-  for comp in ${completions_commands[@]}; do
-    eval $(eval $comp)
-  done
-
-# install tmux plugins
   export TPM=$HOME/.tmux/plugins/tpm
   if [ ! -e $TPM ]; then
     git clone https://github.com/tmux-plugins/tpm $TPM

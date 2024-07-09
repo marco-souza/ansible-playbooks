@@ -96,8 +96,17 @@ fi
 #############
     alias k="kubectl"
     alias kg="kubectl get"
+    alias klg="kubectl log"
     alias ka="kubectl apply -f"
     alias kd="kubectl delete -f"
+    # helm
+    alias h="helm"
+    alias hr="helm repo"
+    alias hi="helm install"
+    alias hu="helm uninstall"
+    alias hd="helm dependency"
+    alias ht="helm template"
+    alias hs="helm search"
 
 # Text Editors
 ################
