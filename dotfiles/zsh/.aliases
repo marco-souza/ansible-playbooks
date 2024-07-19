@@ -7,12 +7,7 @@
 
 # Package Aliases
 #################
-if [ -x "$(command -v apt)" ]; then
-    alias i="sudo apt install -y"
-    alias s="apt search"
-    alias r="sudo apt remove -y"
-    alias u="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y"
-elif [ -x "$(command -v yay)" ]; then
+if [ -x "$(command -v yay)" ]; then
     alias i="yay -Syu --noconfirm"
     alias s="yay -Ss"
     alias r="yay -Rsc"
@@ -31,6 +26,11 @@ elif [ -x "$(command -v brew)" ]; then
     alias i="$ARCH_PREFIX brew install"
     alias u="$ARCH_PREFIX brew update && $ARCH_PREFIX brew update --cask && $ARCH_PREFIX brew upgrade"
     alias ic="$ARCH_PREFIX brew install --cask"
+elif [ -x "$(command -v apt)" ]; then
+    alias i="sudo apt install -y"
+    alias s="apt search"
+    alias r="sudo apt remove -y"
+    alias u="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y"
 fi
 
 
