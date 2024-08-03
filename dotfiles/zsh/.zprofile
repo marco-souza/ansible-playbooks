@@ -99,6 +99,12 @@
     ensure_installed pnpm 'volta install pnpm'
 
 
+
+# Turso
+# =====
+  # turso
+    ensure_installed turso 'curl -sSfL https://get.tur.so/install.sh | bash'
+
 # Nvim version manager
 # =================
   # nvim version manager
