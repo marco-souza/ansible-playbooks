@@ -67,6 +67,13 @@
   ensure_installed deno 'curl -fsSL https://deno.land/install.sh | sh'
 
 
+# Bun Setup
+# =========
+  export BUN_HOME="$HOME/.bun"
+  ensure_path $BUN_HOME
+  ensure_installed bun 'curl -fsSL https://bun.sh/install | bash'
+
+
 # Node Setup
 # =================
   ## volta
