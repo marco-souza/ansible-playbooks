@@ -110,6 +110,8 @@
 # Turso
 # =====
   # turso
+    export TURSO_HOME="$HOME/.turso"
+    ensure_path $TURSO_HOME
     ensure_installed turso 'curl -sSfL https://get.tur.so/install.sh | bash'
 
 # Nvim version manager
