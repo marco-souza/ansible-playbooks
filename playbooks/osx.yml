@@ -6,5 +6,5 @@
     - dotfiles
     - obsidian
     - neovim
-    - docker
+    - podman
     - node

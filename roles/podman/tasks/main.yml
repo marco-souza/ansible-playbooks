@@ -1,16 +1,16 @@
 ---
-- name: (arch) Install docker packages
+- name: (arch) Install podman packages
   become: "{{ become_root }}"
   when: is_manjaro
   ansible.builtin.package:
     name:
-      - docker
-      - docker-compose
-      - docker-machine
+      - podman
+      - podman-desktop
     state: present
 
-- name: (osx) Install docker packages
+- name: (osx) Install podman packages
   when: is_osx
   community.general.homebrew_cask:
     name:
-      - docker
+      - podman
+      - podman-desktop
