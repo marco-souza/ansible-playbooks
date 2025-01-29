@@ -130,3 +130,4 @@ fi
     alias notes="tnw -c ~/w/marco-souza/notes/ nvim"
     alias evim="tnw -c ~/.config/nvim/ nvim"
     alias wo="workon"
+    alias docker="podman"
