@@ -1,6 +1,7 @@
 # Load tmux
 # =================
-if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
+AUTOSTART_TMUX=${AUTOSTART_TMUX:-false}
+if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ] && [ "${AUTOSTART_TMUX}" = "true" ]; then
     exec tmux new-session -A -s ${USER} >/dev/null 2>&1
 fi
 
