@@ -5,6 +5,8 @@ Ansible playbooks for setting up my personal laptops from zero.
 ## Usage
 
 ```sh
+cd ansible
+
 make osx # options (osx, manjaro, pop-os)
 ```
 
