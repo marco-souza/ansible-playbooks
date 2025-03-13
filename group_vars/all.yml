@@ -38,12 +38,11 @@ aur_packages:
   - 1password
   - obsidian-bin
   - google-chrome
-  - pop-wallpapers-git
+  - zen-browser-bin
   - steam-native-runtime
   - telegram-desktop-bin
 
 cask_packages:
-  - arc
   - steam
   - ollama
   - discord
@@ -53,6 +52,7 @@ cask_packages:
   - telegram
   - 1password
   - tailscale
+  - zen-browser
   - brave-browser
   - google-chrome
 
@@ -68,6 +68,10 @@ base_packages:
   - make
   - htop
   - gnupg
+  # languages
+  - go
+  - zig
+  - rust
 
 # node vars
 node_home: $HOME/.npm-global

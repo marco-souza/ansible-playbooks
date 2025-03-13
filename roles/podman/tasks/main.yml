@@ -5,7 +5,6 @@
   ansible.builtin.package:
     name:
       - podman
-      - podman-desktop
     state: present
 
 - name: (osx) Install podman packages

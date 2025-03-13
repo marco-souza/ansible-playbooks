@@ -1,4 +1,18 @@
 ---
+- name: (arch) Install
+  become: "{{ become_root }}"
+  when: is_manjaro
+  ansible.builtin.package:
+    name:
+      - obsidian-bin
+    state: present
+
+- name: (osx) Install
+  when: is_osx
+  community.general.homebrew_cask:
+    name:
+      - obsidian
+
 - name: Setup vaults
   ansible.builtin.git:
     repo: "{{ item.repo }}"

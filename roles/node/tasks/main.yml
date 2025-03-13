@@ -1,5 +1,5 @@
 ---
-- name: Install Node.js 
+- name: Install Node.js
   become: "{{ is_manjaro }}"
   ansible.builtin.package:
     state: present
