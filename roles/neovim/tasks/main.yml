@@ -10,13 +10,10 @@
 
 - name: Setup Personal Neovim config
   ansible.builtin.git:
-    repo: git@github.com:marco-souza/nvim.git
+    repo: git@github.com:marco-souza/scratch.nvim.git
     dest: $HOME/.config/nvim
     clone: true
     force: true
     update: true
     accept_newhostkey: true
-
-- name: Initialize Neovim
-  ansible.builtin.shell: nvim --headless +"Lazy! sync" +qa
 
