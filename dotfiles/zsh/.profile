@@ -1,5 +1,5 @@
 
-export WORKSPACE=$HOME/workspace # user Workspace
+export WORKSPACE=$HOME/w # user Workspace
 
 export BROWSER="/usr/bin/google-chrome"
 [[ -x google-chrome-stable ]] && export BROWSER=$(which google-chrome-stable)

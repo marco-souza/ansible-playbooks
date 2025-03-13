@@ -5,7 +5,7 @@
   export PATH=$PATH:$LOCAL_BIN:/usr/local/bin:/opt/homebrew/bin
   export ARCHFLAGS="-arch x86_64"
   export SSH_KEY_PATH="~/.ssh/rsa_id"
-  export WORKSPACE=$HOME/workspace # user Workspace
+  export WORKSPACE=$HOME/w # user Workspace
 
   ensure_path() {
     dir_path=$1
