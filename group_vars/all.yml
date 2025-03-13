@@ -32,6 +32,7 @@ credentials:
 aur_packages:
   - ollama
   - discord
+  - ghostty
   - wakatime
   - brave-bin
   - tailscale
@@ -46,6 +47,7 @@ cask_packages:
   - steam
   - ollama
   - discord
+  - ghostty
   - amethyst
   - wakatime
   - obsidian
