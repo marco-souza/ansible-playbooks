@@ -2,9 +2,11 @@
 - name: Setup Gnome Desktop
   hosts: localhost
   roles:
+    # system
     - fonts
     - install_packages
     - dotfiles
+    # tools
     - hyprland
     - obsidian
     - neovim
