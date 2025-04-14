@@ -37,7 +37,7 @@ aur_packages:
   - brave-bin
   - tailscale
   - 1password
-  - obsidian-bin
+  - obsidian
   - google-chrome
   - zen-browser-bin
   - steam-native-runtime
