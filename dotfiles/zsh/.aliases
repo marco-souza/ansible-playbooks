@@ -130,7 +130,5 @@ fi
     alias notes="tnw -c ~/w/marco-souza/notes/ nvim"
     alias evim="tnw -c ~/.config/nvim/ nvim"
     alias wo="workon"
-    alias npm="bun"
-    alias npx="bunx"
     alias docker="podman"
     alias openui="docker run -d -p 4321:8080 -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main"

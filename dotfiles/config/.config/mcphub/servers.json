@@ -1,7 +1,5 @@
 {
-  "nativeMCPServers": [
-
-  ],
+  "nativeMCPServers": [],
   "mcpServers": {
     "git": {
       "command": "uvx",
