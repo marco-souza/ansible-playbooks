@@ -6,4 +6,4 @@
     - dotfiles
     - obsidian
     - neovim
-    - node
+    # - node - # TODO: use volta

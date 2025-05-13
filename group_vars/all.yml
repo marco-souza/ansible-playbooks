@@ -12,6 +12,8 @@ dotfiles_packages:
   - zsh
   - git
   - config
+  - ghostty
+  # - wakatime # INFO: configured as credential
   - helix
   - scripts
   - hyprland
