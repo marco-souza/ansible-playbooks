@@ -6,8 +6,9 @@ become_root: "{{ 'yes' if is_manjaro else 'no' }}"
 # data vars
 data_dir: /data/
 
-# dotfiles onfigs
-dotfiles_dir: $PWD/../dotfiles
+# dotfiles
+
+dotfiles_dir: ../../dotfiles 
 dotfiles_packages:
   - zsh
   - git
@@ -18,16 +19,14 @@ dotfiles_packages:
   - scripts
   - hyprland
 
-obsidian_repos:
-  - repo: git@github.com:marco-souza/notes.git
-    dest: $HOME/w/marco-souza/notes
-
 credentials:
-  - src: ../dotfiles/ssh/id_rsa
+  - src: "{{dotfiles_dir}}/ssh/id_rsa"
     dest: $HOME/.ssh/id_rsa
-  - src: ../dotfiles/ssh/id_rsa.pub
+
+  - src: "{{dotfiles_dir}}/ssh/id_rsa.pub"
     dest: $HOME/.ssh/id_rsa.pub
-  - src: ../dotfiles/wakatime/.wakatime.cfg
+
+  - src: "{{dotfiles_dir}}/wakatime/.wakatime.cfg"
     dest: $HOME/.wakatime.cfg
 
 # package vars
@@ -79,4 +78,9 @@ base_packages:
 
 # node vars
 node_home: $HOME/.npm-global
-npm_packages: [] # TODO: replace with volta or remove
+npm_packages: 
+  - npm
+
+obsidian_repos:
+  - repo: git@github.com:marco-souza/notes.git
+    dest: $HOME/w/marco-souza/notes

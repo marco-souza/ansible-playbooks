@@ -2,5 +2,4 @@
 dotfiles/scripts/.local/bin
 dotfiles/git/.ssh/id_rsa*
 dotfiles/git/.ssh/known_hosts*
-dotfiles/scripts/.local/share/*
-dotfiles/scripts/.local/state/*
+dotfiles/scripts/.local/*

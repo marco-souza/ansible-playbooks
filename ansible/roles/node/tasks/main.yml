@@ -5,7 +5,6 @@
     state: present
     name:
       - nodejs
-      - npm
 
 - name: Create global NPM_HOME
   ansible.builtin.file:
@@ -16,9 +15,10 @@
 - name: Set node prefix
   ansible.builtin.shell: npm config set prefix "{{ node_home }}"
 
-- name: Install NPM packages
-  community.general.npm:
-    name: "{{ item }}"
-    global: true
-    state: present
-  with_items: "{{ npm_packages }}"
+# FIXME: use volta
+# - name: Install NPM packages
+#   community.general.npm:
+#     name: "{{ item }}"
+#     global: true
+#     state: present
+#   with_items: "{{ npm_packages }}"
