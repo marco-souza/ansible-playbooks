@@ -6,6 +6,17 @@
   with_items:
     - marco
 
+- name: Create create user workspace
+  ansible.builtin.file:
+    path: "{{ workspace_dir }}"
+    state: directory
+
+- name: Clone marco-souza/ansible-playbook into $USER/w/marco-souza/ansible-playbook
+  ansible.builtin.git:
+    repo: https://github.com/marco-souza/ansible-playbooks.git
+    dest: "{{ playbooks_dir }}"
+    update: yes
+
 - name: Stow user data (manjaro)
   when: is_manjaro
   ansible.builtin.shell:
@@ -14,7 +25,9 @@
 
 - name: Stow cofig files
   ansible.builtin.shell:
-    cmd: stow {{ item }} -t $HOME
+    cmd: |
+      export PATH=$PATH:/usr/local/bin
+      stow {{ item }} -t $HOME
     chdir: "{{ dotfiles_dir }}"
   with_items: "{{ dotfiles_packages }}"
 

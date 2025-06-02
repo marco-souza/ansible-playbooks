@@ -1,0 +1,9 @@
+---
+- name: Setup Home Server (osx)
+  hosts: home-server
+  roles:
+    - install_packages
+    - dotfiles
+    - obsidian
+    - neovim
+    - node

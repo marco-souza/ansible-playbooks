@@ -1,6 +1,6 @@
 [all:vars]
 ansible_connection=ssh
-ansible_user=root
+ansible_user=marco
 
 [home-server]
-bravinho
+192.168.68.101

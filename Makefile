@@ -12,11 +12,15 @@ manjaro: deps-arch deps
 	echo "Setup done! Please restart your Manjaro"
 
 osx: deps
-	cd ansible && ansible-playbook playbooks/osx.yml -i localhost --ask-become-pass
+	cd ansible && ansible-playbook playbooks/osx.yml --ask-become-pass
 	echo "Setup done! Please restart your Mac OS"
 
+home-server: deps
+	cd ansible && ansible-playbook playbooks/home-server.yml --ask-become-pass
+	echo "Setup done! Please restart your Server"
+
 nvim: deps
-	cd ansible && ansible-playbook playbooks/neovim.yml -i localhost --ask-become-pass
+	cd ansible && ansible-playbook playbooks/neovim.yml --ask-become-pass
 	echo "Your neovim is good to go!"
 
 decrypt:

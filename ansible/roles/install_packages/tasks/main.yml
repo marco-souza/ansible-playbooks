@@ -17,14 +17,3 @@
     state: upgraded
     name: "{{ cask_packages }}"
 
-- name: (osx) Tap cask packages
-  when: is_osx
-  community.general.homebrew_tap:
-    name:
-      - homebrew/cask-versions
-      - homebrew/cask-fonts
-
-- name: (osx) Install Nerd fonts
-  when: is_osx
-  ansible.builtin.shell: |
-    brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs brew install --cask || true
