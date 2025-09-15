@@ -205,3 +205,16 @@ fi
     [ -f $install ] && sh $install
   fi
 
+
+# asdf setup
+# =================
+  if [ ! -x "$(command -v asdf)" ]; then
+    i asdf
+  fi
+
+  export ASDF_DATA_DIR=$HOME/.asdf
+  export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+  mkdir -p "$ASDF_DATA_DIR/completions"
+  asdf completion zsh > "$ASDF_DATA_DIR/completions/_asdf"
+  source "$ASDF_DATA_DIR/completions/_asdf"

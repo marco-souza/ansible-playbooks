@@ -5,7 +5,7 @@
 # github_dark_dimmed jellybeans kanagawa
 # kaolin-valley-dark material_deep_ocean
 # molokai nightfox nord-light snazzy sonokai
-theme = "onedarker"
+theme = "rose-pine"
 
 [editor]
 line-number = "relative"
