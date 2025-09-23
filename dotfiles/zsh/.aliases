@@ -24,7 +24,7 @@ elif [ -x "$(command -v brew)" ]; then
     alias s="$ARCH_PREFIX brew search"
     alias r="$ARCH_PREFIX brew remove"
     alias i="$ARCH_PREFIX brew install"
-    alias u="$ARCH_PREFIX brew update && $ARCH_PREFIX brew upgrade"
+    alias u="$ARCH_PREFIX brew update && $ARCH_PREFIX brew upgrade && dnu && bu"
     alias ic="$ARCH_PREFIX brew install --cask"
 elif [ -x "$(command -v apt)" ]; then
     alias i="sudo apt install -y"
@@ -35,11 +35,21 @@ fi
 
 
 # Deno aliases
-#############
+##############
     alias dn="deno"
     alias dt="deno task"
     alias dnr="deno run"
     alias dni="deno install"
+    alias dnu="deno upgrade --force"
+
+
+# Bun aliases
+#############
+    alias b="bun"
+    alias bi="bun install"
+    alias br="bun remove"
+    alias brun="bun run"
+    alias bu="bun upgrade --latest"
 
 
 # NPM Aliases
@@ -49,7 +59,7 @@ fi
     alias nu="npm up -g"
 
 
-# Yarn Aliases
+# PNPM Aliases
 ##############
     alias pn="pnpm"
     alias pnx="pnpx"
